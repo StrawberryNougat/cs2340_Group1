@@ -5,15 +5,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.logic_masters_games.ScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.logic_masters_games.ScreenController">
    <children>
       <Label layoutX="215.0" layoutY="52.0" prefHeight="88.0" prefWidth="169.0" text="Welcome!">
          <font>
-            <Font size="38.0" />
+            <Font size="38.0"/>
          </font>
       </Label>
-      <Button layoutX="56.0" layoutY="278.0" mnemonicParsing="false" onAction="#startGameOne" text="Start Game One" />
-      <Button layoutX="435.0" layoutY="278.0" mnemonicParsing="false" onAction="#startGameThree" text="Start Game Three" />
-      <Button layoutX="249.0" layoutY="278.0" mnemonicParsing="false" onAction="#startGameTwo" text="Start Game Two" />
+      <Button layoutX="56.0" layoutY="278.0" mnemonicParsing="false" onAction="#startGameOne" text="Start Game One"/>
+      <Button layoutX="435.0" layoutY="278.0" mnemonicParsing="false" onAction="#startGameThree"
+              text="Start Game Three"/>
+      <Button layoutX="249.0" layoutY="278.0" mnemonicParsing="false" onAction="#startGameTwo" text="Start Game Two"/>
    </children>
 </AnchorPane>
