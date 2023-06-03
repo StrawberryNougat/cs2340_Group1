@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.logic_masters_games.ScreenController">
+    <children>
+        <TextField fx:id="usernameInput" layoutX="225.0" layoutY="254.0" promptText="Enter Your Username..." />
+        <Button layoutY="1.0" mnemonicParsing="false" onAction="#startGameTwo" text="Back" />
+        <Button layoutX="249.0" layoutY="304.0" mnemonicParsing="false" onAction="#goToGameTwo" text="Start The Game!" />
+        <ImageView fitHeight="96.0" fitWidth="118.0" layoutX="131.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../Bunny_Sprite.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="107.0" fitWidth="118.0" layoutX="241.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../cat_sprite.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="103.0" fitWidth="135.0" layoutX="351.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../Apple_Sprite.png" />
+            </image>
+        </ImageView>
+        <ChoiceBox fx:id="gameTwoChoiceBox" layoutX="224.0" layoutY="200.0" prefWidth="150.0" />
+    </children>
+</AnchorPane>
