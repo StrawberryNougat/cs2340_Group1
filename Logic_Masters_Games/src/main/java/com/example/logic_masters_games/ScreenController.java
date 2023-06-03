@@ -35,6 +35,8 @@ public class ScreenController implements Initializable {
 
     @FXML
     ChoiceBox<String> gameOneChoiceBox = new ChoiceBox<String>();
+    @FXML
+    ChoiceBox<String> gameTwoChoiceBox = new ChoiceBox<String>();
     private String[] sprites = {"bunny", "cat", "apple"};
 
     public void startGameOne (ActionEvent event) throws IOException {
@@ -77,6 +79,14 @@ public class ScreenController implements Initializable {
         stage.show();
     }
 
+    public void goToGameTwoInitialization (ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("game2-initialization-screen.fxml"));
+        stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void goToGameOne (ActionEvent event) throws IOException { //fun button code. Yay.
         String username = usernameInput.getText();
         if (!username.isBlank() && !gameOneChoiceBox.getValue().isBlank()) {
@@ -103,9 +113,36 @@ public class ScreenController implements Initializable {
         }
     }
 
+    public void goToGameTwo (ActionEvent event) throws IOException {
+        String username = usernameInput.getText();
+        if (!username.isBlank() && !gameTwoChoiceBox.getValue().isBlank()) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("game2-game-screen.fxml"));
+            root = loader.load();
+            GameTwoController gameTwoController = loader.getController();
+            gameTwoController.displayUsername(username);
+            if (gameTwoChoiceBox.getValue().equals("bunny")) {
+                gameTwoController.showSprite(bunny);
+            }
+            if (gameTwoChoiceBox.getValue().equals("cat")) {
+                gameTwoController.showSprite(cat);
+            }
+            if (gameTwoChoiceBox.getValue().equals("apple")) {
+                gameTwoController.showSprite(apple);
+            }
+
+
+            //Parent root = FXMLLoader.load(getClass().getResource("game2-game-screen.fxml"));
+            stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gameOneChoiceBox.getItems().addAll(sprites);
+        gameTwoChoiceBox.getItems().addAll(sprites);
     }
 }
