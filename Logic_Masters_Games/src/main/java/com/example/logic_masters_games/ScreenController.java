@@ -50,7 +50,7 @@ public class ScreenController implements Initializable {
     }
 
     public void startGameTwo (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("game-2-start-screen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("game2-start-screen.fxml"));
         stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
