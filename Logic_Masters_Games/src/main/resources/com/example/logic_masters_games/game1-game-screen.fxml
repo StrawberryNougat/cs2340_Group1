@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,6 +8,10 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.logic_masters_games.GameOneController">
    <children>
       <Label fx:id="usernameDisplay" layoutX="14.0" layoutY="14.0" text="Username: " />
-      <ImageView fx:id="gameOneSprite" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="gameOneSprite" fitHeight="79.0" fitWidth="87.0" layoutX="14.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="choice_one" layoutX="75.0" layoutY="306.0" mnemonicParsing="false" onAction="#answerChoiceOne" text="Button" />
+      <Button fx:id="choice_two" layoutX="256.0" layoutY="306.0" mnemonicParsing="false" onAction="#answerChoiceTwo" text="Button" />
+      <Button fx:id="choice_three" layoutX="459.0" layoutY="306.0" mnemonicParsing="false" onAction="#answerChoiceThree" text="Button" />
+      <Label fx:id="question_text" layoutX="74.0" layoutY="144.0" text="Question: " />
    </children>
 </AnchorPane>
