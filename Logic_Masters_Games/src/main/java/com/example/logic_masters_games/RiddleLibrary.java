@@ -42,6 +42,19 @@ public class RiddleLibrary {
         }
     }
 
+    public Riddle selectByDifficultyLevel(int level) {
+        // When user selects Easy, level will be passed in as 0.
+        // When user selects Medium, level will be passed in as 1.
+        // When user selects Hard, level will be passed in as 2.
+        if (level == 0) {
+            return availableRiddlesEasy.pop();
+        } else if (level == 1) {
+            return availableRiddlesMed.pop();
+        } else {
+            return availableRiddlesHard.pop();
+        }
+    }
+
     public boolean areRiddlesRemaining(int currScore) {
         if (currScore < difficultyThresholdEM && availableRiddlesEasy.empty()) {
             return false;
