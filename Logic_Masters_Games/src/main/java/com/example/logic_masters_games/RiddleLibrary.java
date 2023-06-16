@@ -20,16 +20,17 @@ public class RiddleLibrary {
         this.difficultyThresholdMH = MH;
     }
 
-    public addRiddle(int level, Riddle newRiddle) {
+    public void addRiddle(int level, Riddle newRiddle) {
         if (level < difficultyThresholdEM) {
-            return availableRiddlesEasy.push(newRiddle);
+            availableRiddlesEasy.push(newRiddle);
         } else if (level >= difficultyThresholdEM &&
                 level <= difficultyThresholdMH) {
-            return availableRiddlesMed.push(newRiddle);
+            availableRiddlesMed.push(newRiddle);
         } else {
-            return availableRiddlesHard.push(newRiddle);
+            availableRiddlesHard.push(newRiddle);
         }
     }
+
     public Riddle select(int currScore) {
         if (currScore < difficultyThresholdEM) {
             return availableRiddlesEasy.pop();
