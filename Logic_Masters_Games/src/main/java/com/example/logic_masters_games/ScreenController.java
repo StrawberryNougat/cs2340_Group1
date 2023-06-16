@@ -120,7 +120,15 @@ public class ScreenController implements Initializable {
                 gameOneController.showSprite(apple);
             }
 
-
+            if (gameOneDifficultyBox.getValue().equals("easy")) {
+                gameOneController.changeWinningScore(25);
+            }
+            if (gameOneDifficultyBox.getValue().equals("normal")) {
+                gameOneController.changeWinningScore(50);
+            }
+            if (gameOneDifficultyBox.getValue().equals("hard")) {
+                gameOneController.changeWinningScore(75);
+            }
             //Parent root = FXMLLoader.load(getClass().getResource("game1-game-screen.fxml"));
             stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);

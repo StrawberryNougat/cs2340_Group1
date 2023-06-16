@@ -43,7 +43,9 @@ public class GameOneController {
     public void showSprite(Image gameSprite) {
         gameOneSprite.setImage(gameSprite);
     }
-
+    public void changeWinningScore(int score_to_win) {
+        this.score_to_win = score_to_win;
+    }
     public void changeQuestion(String question, Riddle riddle) {
         question_text.setText("Question: " + riddle.content);
     }
