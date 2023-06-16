@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2d3514e-d411-43f7-b929-070782acc730" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/WinScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/resources/com/example/logic_masters_games/win-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/ScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/ScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/WinScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/WinScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -65,6 +64,8 @@
       <workItem from="1686878722651" duration="56000" />
       <workItem from="1686878780689" duration="212000" />
       <workItem from="1686878995422" duration="3465000" />
+      <workItem from="1686882717932" duration="1891000" />
+      <workItem from="1686885400920" duration="1837000" />
     </task>
     <servers />
   </component>

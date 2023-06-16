@@ -1,4 +1,4 @@
-package com.example.sprint1.Logic_Masters_Games.src.main.java.com.example.logic_masters_games;
+package com.example.logic_masters_games;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
