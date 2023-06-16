@@ -27,6 +27,7 @@
             <Image url="@../../../Apple_Sprite.png" />
          </image>
       </ImageView>
-      <ChoiceBox fx:id="gameOneChoiceBox" layoutX="224.0" layoutY="200.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="gameOneChoiceBox" layoutX="224.0" layoutY="220.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="gameOneDifficultyBox" layoutX="225.0" layoutY="188.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

@@ -34,6 +34,8 @@ public class GameOneController {
     boolean choice_two_correct;
     boolean choice_three_correct;
 
+    int score_to_win;
+
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
     }

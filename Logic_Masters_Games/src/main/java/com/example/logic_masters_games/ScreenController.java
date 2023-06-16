@@ -39,7 +39,12 @@ public class ScreenController implements Initializable {
     ChoiceBox<String> gameTwoChoiceBox = new ChoiceBox<String>();
     @FXML
     ChoiceBox<String> gameThreeChoiceBox = new ChoiceBox<String>();
+
+    @FXML
+    ChoiceBox<String> gameOneDifficultyBox = new ChoiceBox<String>();
     private String[] sprites = {"bunny", "cat", "apple"};
+
+    private String[] difficulties = {"easy", "normal", "hard"};
 
     public void startGameOne (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("game1-start-screen.fxml"));
@@ -185,6 +190,7 @@ public class ScreenController implements Initializable {
         gameOneChoiceBox.getItems().addAll(sprites);
         gameTwoChoiceBox.getItems().addAll(sprites);
         gameThreeChoiceBox.getItems().addAll(sprites);
+        gameOneDifficultyBox.getItems().addAll(difficulties);
     }
 
 }
