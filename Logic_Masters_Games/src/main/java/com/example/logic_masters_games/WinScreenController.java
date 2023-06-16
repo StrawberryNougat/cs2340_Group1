@@ -1,9 +1,15 @@
 package com.example.sprint1.Logic_Masters_Games.src.main.java.com.example.logic_masters_games;
 
+import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
@@ -22,5 +28,23 @@ public class WinScreenController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private Button quitButton;
+    @FXML
+    private AnchorPane scenePane;
+
+    public void quitGame(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Are you sure you want to quit the game?");
+        alert.setContentText("This will close the application.");
+
+        if(alert.showAndWait().get() == ButtonType.OK) {
+            stage = (Stage) scenePane.getScene().getWindow();
+            System.out.println("You successfully logged out!");
+            stage.close();
+        }
     }
 }
