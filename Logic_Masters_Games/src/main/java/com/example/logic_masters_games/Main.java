@@ -18,6 +18,9 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+
+            stage.setOnCloseRequest(event -> quitGame(stage));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -27,4 +30,16 @@ public class Main extends Application {
         launch(args);
     }
 
+
+    public void quitGame(Stage stage) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Are you sure you want to quit the game?");
+        alert.setContentText("This will close the application.");
+
+        if(alert.showAndWait().get() == ButtonType.OK) {
+            System.out.println("You successfully logged out!");
+            stage.close();
+        }
+    }
 }
