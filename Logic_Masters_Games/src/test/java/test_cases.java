@@ -189,8 +189,6 @@ public class test_cases {
                 "Piano",
                 "Guitar",
                 "Violin");
-        //ScreenController screenController = new ScreenController();
-        // GameOneController gameOneController = new GameOneController();
         Riddle[] easies = {a};
         Riddle[] mediums = {b};
         Riddle[] hards = {c};
