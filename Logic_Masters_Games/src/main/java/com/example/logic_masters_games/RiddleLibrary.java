@@ -48,7 +48,7 @@ public class RiddleLibrary {
     }
 
     public Riddle select(int currScore) throws IOException {
-//        if (areRiddlesRemaining(currScore)) {
+        if (areRiddlesRemaining(currScore)) {
             if (currScore < difficultyThresholdEM) {
                 return availableRiddlesEasy.pop();
             } else if (currScore >= difficultyThresholdEM &&
@@ -57,7 +57,9 @@ public class RiddleLibrary {
             } else {
                 return availableRiddlesHard.pop();
             }
-//        }
+        } else {
+            throw new java.util.NoSuchElementException("we're out");
+        }
     }
 
     public Riddle selectByDifficultyLevel(int level) {
