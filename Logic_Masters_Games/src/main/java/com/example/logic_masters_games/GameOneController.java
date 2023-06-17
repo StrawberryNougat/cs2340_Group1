@@ -95,6 +95,7 @@ public class GameOneController {
     public void answerChoiceTwo(ActionEvent event) throws IOException {
         if (choice_two_correct) {
             //score goes up
+            //score should be displayed as well
             //call changequestion method with new riddle based on current score
             goToWinScreen();
         } else {
