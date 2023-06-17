@@ -46,7 +46,7 @@ public class ScreenController implements Initializable {
 
     private String[] difficulties = {"easy", "normal", "hard"};
 
-    Riddle a = new Riddle(
+    Riddle startingEasy = new Riddle(
             "David’s parents have three sons: Snap, Crackle, and what’s the name of the third son?",
             "Easy",
             "David",
@@ -54,7 +54,7 @@ public class ScreenController implements Initializable {
             "Crackle");
 
 
-    Riddle d = new Riddle(
+    Riddle startingMedium = new Riddle(
             "I shave every day, but my beard stays the same. What am I?",
             "Med",
             "A Barber",
@@ -62,7 +62,7 @@ public class ScreenController implements Initializable {
             "A Carpenter");
 
 
-    Riddle g = new Riddle(
+    Riddle startingHard = new Riddle(
             "What can fill a room but takes up no space?",
             "Hard",
             "Light",
@@ -146,21 +146,21 @@ public class ScreenController implements Initializable {
             if (gameOneDifficultyBox.getValue().equals("easy")) {
                 gameOneController.changeScore(0);
                 gameOneController.changeWinningScore(2);
-                gameOneController.changeQuestion(a);
+                gameOneController.changeQuestion(startingEasy);
 
 
             }
             if (gameOneDifficultyBox.getValue().equals("normal")) {
                 gameOneController.changeScore(0);
                 gameOneController.changeWinningScore(3);
-                gameOneController.changeQuestion(d);
+                gameOneController.changeQuestion(startingMedium);
 
 
             }
             if (gameOneDifficultyBox.getValue().equals("hard")) {
                 gameOneController.changeScore(0);
                 gameOneController.changeWinningScore(4);
-                gameOneController.changeQuestion(g);
+                gameOneController.changeQuestion(startingHard);
 
 
             }

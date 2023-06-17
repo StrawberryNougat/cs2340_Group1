@@ -287,4 +287,8 @@ public class GameOneController {
     public void setCurrentScore(int x) {
         this.currentScore = x;
     }
+
+    public String getUsername() {
+        return this.usernameDisplay.getText();
+    }
 }
