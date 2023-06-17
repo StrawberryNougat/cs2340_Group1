@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.util.Random;
+import java.util.Stack;
 
 
 public class GameOneController {
@@ -39,9 +40,6 @@ public class GameOneController {
     int currentScore;
 
 
-    private RiddleLibrary riddleLib = new RiddleLibrary("Easy", 3, 7);
-
-
     Riddle a = new Riddle(
             "David’s parents have three sons: Snap, Crackle, and what’s the name of the third son?",
             "Easy",
@@ -60,12 +58,16 @@ public class GameOneController {
             "Piano",
             "Guitar",
             "Violin");
+    Riddle[] easies = {a};
+    Riddle[] normals = {b};
 
-    riddleLib.addRiddle(0, a);
-    riddleLib.addRiddle(0, b);
-    riddleLib.addRiddle(0, c);
+    Riddle[] hards = {c};
 
 
+
+
+
+    private RiddleLibrary riddleLib = new RiddleLibrary(3, 7, easies, normals, hards);
 
 
     public void displayUsername(String username) {
@@ -74,12 +76,14 @@ public class GameOneController {
 
     public void showSprite(Image gameSprite) {
         gameOneSprite.setImage(gameSprite);
+
     }
     public void changeWinningScore(int score_to_win) {
         this.score_to_win = score_to_win;
     }
-    public void changeQuestion(String question, Riddle riddle) {
+    public void changeQuestion(Riddle riddle) {
         question_text.setText("Question: " + riddle.content);
+        changeButtons(riddle);
     }
     public void changeButtons(Riddle riddle) {
         Random rand = new Random();
@@ -114,33 +118,49 @@ public class GameOneController {
     public void answerChoiceOne(ActionEvent event) throws IOException {
         if (choice_one_correct) {
             currentScore++;
-            changeQuestion();
+            changeQuestion(riddleLib.select(currentScore));
+//            changeButtons(a);
             //call changequestion method with new riddle based on current score
-            goToWinScreen();
+            if (currentScore >= score_to_win) {
+                WinScreenController winScreen = new WinScreenController();
+                winScreen.switchToWinScreen(event);
+            }
         } else {
             currentScore--;
-            changeQuestion();
+            changeQuestion(riddleLib.select(currentScore));
+//            changeButtons(b);
             //call changequestion method with new riddle based on current score
         }
     }
     public void answerChoiceTwo(ActionEvent event) throws IOException {
         if (choice_two_correct) {
             currentScore++;
-            changeQuestion();
+            changeQuestion(riddleLib.select(currentScore));
+//            changeButtons(c);
             //call changequestion method with new riddle based on current score
-            goToWinScreen();
+            if (currentScore >= score_to_win) {
+                WinScreenController winScreen = new WinScreenController();
+                winScreen.switchToWinScreen(event);
+            }
         } else {
             currentScore--;
-            changeQuestion();
+            if (currentScore >= score_to_win) {
+                WinScreenController winScreen = new WinScreenController();
+                winScreen.switchToWinScreen(event);
+            }
             //call changequestion method with new riddle based on current score
         }
     }
     public void answerChoiceThree(ActionEvent event) throws IOException {
         if (choice_three_correct) {
             currentScore++;
-            changeQuestion();
+            changeQuestion(riddleLib.select(currentScore));
+//            changeButtons(b);
             //call changequestion method with new riddle based on current score
-            goToWinScreen();
+            if (currentScore >= score_to_win) {
+                WinScreenController winScreen = new WinScreenController();
+                winScreen.switchToWinScreen(event);
+            }
         } else {
             currentScore--;
             //call changequestion method with new riddle based on current score
@@ -148,9 +168,9 @@ public class GameOneController {
     }
 
     public static void goToWinScreen() {
-        if (currentScore >= score_to_win) {
-            WinScreenController winScreen = new WinScreenController();
-            winScreen.switchToWinScreen();
-        }
+//        if (currentScore >= score_to_win) {
+//            WinScreenController winScreen = new WinScreenController();
+//            winScreen.switchToWinScreen();
+//        }
     }
 }
