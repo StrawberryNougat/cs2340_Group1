@@ -83,36 +83,36 @@ public class GameOneController {
 
     public void answerChoiceOne(ActionEvent event) throws IOException {
         if (choice_one_correct) {
-            score_to_win++;
+            currentScore++;
             changeQuestion();
             //call changequestion method with new riddle based on current score
             goToWinScreen();
         } else {
-            score_to_win--;
+            currentScore--;
             changeQuestion();
             //call changequestion method with new riddle based on current score
         }
     }
     public void answerChoiceTwo(ActionEvent event) throws IOException {
         if (choice_two_correct) {
-            score_to_win++;
+            currentScore++;
             changeQuestion();
             //call changequestion method with new riddle based on current score
             goToWinScreen();
         } else {
-            score_to_win--;
+            currentScore--;
             changeQuestion();
             //call changequestion method with new riddle based on current score
         }
     }
     public void answerChoiceThree(ActionEvent event) throws IOException {
         if (choice_three_correct) {
-            score_to_win++;
+            currentScore++;
             changeQuestion();
             //call changequestion method with new riddle based on current score
             goToWinScreen();
         } else {
-            score_to_win--;
+            currentScore--;
             //call changequestion method with new riddle based on current score
         }
     }
