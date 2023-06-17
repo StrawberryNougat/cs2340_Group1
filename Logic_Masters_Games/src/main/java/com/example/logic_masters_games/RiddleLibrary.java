@@ -1,5 +1,10 @@
 package com.example.logic_masters_games;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.Stack;
 
 public class RiddleLibrary {
@@ -42,8 +47,8 @@ public class RiddleLibrary {
         }
     }
 
-    public Riddle select(int currScore) {
-        if (areRiddlesRemaining(currScore)) {
+    public Riddle select(int currScore) throws IOException {
+//        if (areRiddlesRemaining(currScore)) {
             if (currScore < difficultyThresholdEM) {
                 return availableRiddlesEasy.pop();
             } else if (currScore >= difficultyThresholdEM &&
@@ -52,10 +57,7 @@ public class RiddleLibrary {
             } else {
                 return availableRiddlesHard.pop();
             }
-        } else {
-            throw new java.util.NoSuchElementException("Hey Libby change this - this is a test hi future me");
-        }
-
+//        }
     }
 
     public Riddle selectByDifficultyLevel(int level) {

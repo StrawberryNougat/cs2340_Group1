@@ -2,10 +2,14 @@ package com.example.logic_masters_games;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Random;
@@ -13,6 +17,11 @@ import java.util.Stack;
 
 
 public class GameOneController {
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     @FXML
     Label usernameDisplay;
 
@@ -30,6 +39,9 @@ public class GameOneController {
 
     @FXML
     Button choice_three;
+
+    @FXML
+    Label game_one_score;
 
     boolean choice_one_correct;
     boolean choice_two_correct;
@@ -94,17 +106,19 @@ public class GameOneController {
             "Nine",
             "Seven",
             "Three"
-    )
+    );
 
     Riddle[] easies = {a, b, c};
     Riddle[] mediums = {d, e, f};
     Riddle[] hards = {g, h, i};
-    
-    private RiddleLibrary riddleLib = new RiddleLibrary(3, 7, easies, mediums, hards);
-
+    private RiddleLibrary riddleLib = new RiddleLibrary(score_to_win/4, score_to_win, easies, mediums, hards);
 
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
+    }
+
+    public void changeScore(int score) {
+        game_one_score.setText(" " + score);
     }
 
     public void showSprite(Image gameSprite) {
@@ -151,15 +165,32 @@ public class GameOneController {
     public void answerChoiceOne(ActionEvent event) throws IOException {
         if (choice_one_correct) {
             currentScore++;
-            changeQuestion(riddleLib.select(currentScore));
-//            changeButtons(a);
-            //call changequestion method with new riddle based on current score
+            changeScore(currentScore);
+            if (riddleLib.select(currentScore) == null && currentScore < score_to_win) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("game_one_lose.fxml"));
+                stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
             if (currentScore >= score_to_win) {
                 WinScreenController winScreen = new WinScreenController();
                 winScreen.switchToWinScreen(event);
             }
+            changeQuestion(riddleLib.select(currentScore));
+//            changeButtons(a);
+            //call changequestion method with new riddle based on current score
+
         } else {
             currentScore--;
+            changeScore(currentScore);
+            if (riddleLib.select(currentScore) == null && currentScore < score_to_win) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("game_one_lose.fxml"));
+                stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
             changeQuestion(riddleLib.select(currentScore));
 //            changeButtons(b);
             //call changequestion method with new riddle based on current score
@@ -168,15 +199,33 @@ public class GameOneController {
     public void answerChoiceTwo(ActionEvent event) throws IOException {
         if (choice_two_correct) {
             currentScore++;
-            changeQuestion(riddleLib.select(currentScore));
-//            changeButtons(c);
-            //call changequestion method with new riddle based on current score
+            changeScore(currentScore);
+            if (riddleLib.select(currentScore) == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("game_one_lose.fxml"));
+                stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
             if (currentScore >= score_to_win) {
                 WinScreenController winScreen = new WinScreenController();
                 winScreen.switchToWinScreen(event);
             }
+            changeQuestion(riddleLib.select(currentScore));
+//            changeButtons(c);
+            //call changequestion method with new riddle based on current score
+
         } else {
             currentScore--;
+            changeScore(currentScore);
+            if (riddleLib.select(currentScore) == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("game_one_lose.fxml"));
+                stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+            changeQuestion(riddleLib.select(currentScore));
             if (currentScore >= score_to_win) {
                 WinScreenController winScreen = new WinScreenController();
                 winScreen.switchToWinScreen(event);
@@ -187,15 +236,33 @@ public class GameOneController {
     public void answerChoiceThree(ActionEvent event) throws IOException {
         if (choice_three_correct) {
             currentScore++;
-            changeQuestion(riddleLib.select(currentScore));
-//            changeButtons(b);
-            //call changequestion method with new riddle based on current score
+            changeScore(currentScore);
+            if (riddleLib.select(currentScore) == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("game_one_lose.fxml"));
+                stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
             if (currentScore >= score_to_win) {
                 WinScreenController winScreen = new WinScreenController();
                 winScreen.switchToWinScreen(event);
             }
+            changeQuestion(riddleLib.select(currentScore));
+//            changeButtons(b);
+            //call changequestion method with new riddle based on current score
+
         } else {
             currentScore--;
+            changeScore(currentScore);
+            if (riddleLib.select(currentScore) == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("game_one_lose.fxml"));
+                stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+            changeQuestion(riddleLib.select(currentScore));
             //call changequestion method with new riddle based on current score
         }
     }
