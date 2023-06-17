@@ -52,18 +52,22 @@ public class ScreenController implements Initializable {
             "David",
             "Snap",
             "Crackle");
-    Riddle b = new Riddle(
-            "I follow you all the time and copy your every move, but you can’t touch me or catch me. What am I?",
-            "Easy",
-            "Your shadow",
-            "Your face",
-            "Your legs");
-    Riddle c = new Riddle(
-            "What has many keys but can’t open a single lock?",
-            "Easy",
-            "Piano",
-            "Guitar",
-            "Violin");
+
+
+    Riddle d = new Riddle(
+            "I shave every day, but my beard stays the same. What am I?",
+            "Med",
+            "A Barber",
+            "A Magician",
+            "A Carpenter");
+
+
+    Riddle g = new Riddle(
+            "What can fill a room but takes up no space?",
+            "Hard",
+            "Light",
+            "Dust",
+            "Energy");
 
     public void startGameOne (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("game1-start-screen.fxml"));
@@ -140,21 +144,24 @@ public class ScreenController implements Initializable {
             }
 
             if (gameOneDifficultyBox.getValue().equals("easy")) {
-                gameOneController.changeWinningScore(25);
+                gameOneController.changeScore(0);
+                gameOneController.changeWinningScore(2);
                 gameOneController.changeQuestion(a);
-                gameOneController.changeButtons(a);
+
 
             }
             if (gameOneDifficultyBox.getValue().equals("normal")) {
-                gameOneController.changeWinningScore(50);
-                gameOneController.changeQuestion(a);
-                gameOneController.changeButtons(a);
+                gameOneController.changeScore(0);
+                gameOneController.changeWinningScore(3);
+                gameOneController.changeQuestion(d);
+
 
             }
             if (gameOneDifficultyBox.getValue().equals("hard")) {
-                gameOneController.changeWinningScore(75);
-                gameOneController.changeQuestion(a);
-                gameOneController.changeButtons(a);
+                gameOneController.changeScore(0);
+                gameOneController.changeWinningScore(4);
+                gameOneController.changeQuestion(g);
+
 
             }
             //Parent root = FXMLLoader.load(getClass().getResource("game1-game-screen.fxml"));
