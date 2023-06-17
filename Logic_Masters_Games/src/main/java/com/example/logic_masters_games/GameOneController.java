@@ -36,6 +36,8 @@ public class GameOneController {
 
     int score_to_win;
 
+    int currentScore;
+
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
     }
@@ -83,6 +85,7 @@ public class GameOneController {
         if (choice_one_correct) {
             //score goes up
             //call changequestion method with new riddle based on current score
+            goToWinScreen();
         } else {
             //score goes down
             //call changequestion method with new riddle based on current score
@@ -92,6 +95,7 @@ public class GameOneController {
         if (choice_two_correct) {
             //score goes up
             //call changequestion method with new riddle based on current score
+            goToWinScreen();
         } else {
             //score goes down
             //call changequestion method with new riddle based on current score
@@ -101,9 +105,17 @@ public class GameOneController {
         if (choice_three_correct) {
             //score goes up
             //call changequestion method with new riddle based on current score
+            goToWinScreen();
         } else {
             //score goes down
             //call changequestion method with new riddle based on current score
+        }
+    }
+
+    public static void goToWinScreen() {
+        if (currentScore >= score_to_win) {
+            WinScreenController winScreen = new WinScreenController();
+            winScreen.switchToWinScreen();
         }
     }
 }
