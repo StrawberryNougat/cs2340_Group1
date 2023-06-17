@@ -294,4 +294,13 @@ public class GameOneController {
     public int getScore_to_win() {
         return this.score_to_win;
     }
+    public boolean getChoice_one_correct() {
+        return this.choice_one_correct;
+    }
+    public boolean getChoice_two_correct() {
+        return this.choice_two_correct;
+    }
+    public boolean getChoice_three_correct() {
+        return this.choice_three_correct;
+    }
 }
