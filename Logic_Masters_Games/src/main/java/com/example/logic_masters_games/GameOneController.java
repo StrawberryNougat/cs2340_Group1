@@ -291,4 +291,7 @@ public class GameOneController {
     public String getUsername() {
         return this.usernameDisplay.getText();
     }
+    public int getScore_to_win() {
+        return this.score_to_win;
+    }
 }

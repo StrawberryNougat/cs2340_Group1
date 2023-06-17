@@ -37,7 +37,7 @@ public class test_cases {
                 "Guitar",
                 "Violin");
         //ScreenController screenController = new ScreenController();
-       // GameOneController gameOneController = new GameOneController();
+        // GameOneController gameOneController = new GameOneController();
         Riddle[] easies = {a};
         Riddle[] mediums = {b};
         Riddle[] hards = {c};
@@ -160,6 +160,13 @@ public class test_cases {
 
         // assert that availableRiddlesEasy is empty.
         assertTrue(testRiddleLibrary.availableRiddlesEasy.empty());
+    }
+
+    @Test
+    public void test_change_win_score() {
+        GameOneController gameOneController = new GameOneController();
+        gameOneController.changeWinningScore(5);
+        assertEquals(gameOneController.getScore_to_win(), 5);
     }
 
 }
