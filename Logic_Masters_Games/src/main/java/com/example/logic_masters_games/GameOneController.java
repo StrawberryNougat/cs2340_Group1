@@ -86,6 +86,7 @@ public class GameOneController {
         } else {
             //score goes down
             //call changequestion method with new riddle based on current score
+            //will implement here (Armaan)
         }
     }
     public void answerChoiceTwo(ActionEvent event) throws IOException {
