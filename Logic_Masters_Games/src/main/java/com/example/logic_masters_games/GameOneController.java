@@ -58,16 +58,49 @@ public class GameOneController {
             "Piano",
             "Guitar",
             "Violin");
-    Riddle[] easies = {a};
-    Riddle[] normals = {b};
+    Riddle d = new Riddle(
+            "I shave every day, but my beard stays the same. What am I?",
+            "Med",
+            "A Barber",
+            "A Magician",
+            "A Carpenter");
+    Riddle e = new Riddle(
+            "What gets wet while drying?",
+            "Med",
+            "A Towel",
+            "A Toothbrush",
+            "A Shoe");
+    Riddle f = new Riddle(
+            "The more of this there is, the less you see. What is it?",
+            "Med",
+            "Darkness",
+            "Space",
+            "Sadness");
+    Riddle g = new Riddle(
+            "What can fill a room but takes up no space?",
+            "Hard",
+            "Light",
+            "Dust",
+            "Energy");
+    Riddle h = new Riddle(
+            "What is 3/7 chicken, 2/3 cat and 2/4 goat?",
+            "Hard",
+            "Chicago",
+            "Detroit",
+            "Atlanta");
+    Riddle i = new Riddle(
+            "If two’s company, and three’s a crowd, what are four and five?",
+            "Hard",
+            "Nine",
+            "Seven",
+            "Three"
+    )
 
-    Riddle[] hards = {c};
-
-
-
-
-
-    private RiddleLibrary riddleLib = new RiddleLibrary(3, 7, easies, normals, hards);
+    Riddle[] easies = {a, b, c};
+    Riddle[] mediums = {d, e, f};
+    Riddle[] hards = {g, h, i};
+    
+    private RiddleLibrary riddleLib = new RiddleLibrary(3, 7, easies, mediums, hards);
 
 
     public void displayUsername(String username) {
