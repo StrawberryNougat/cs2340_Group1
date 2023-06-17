@@ -33,6 +33,11 @@ public class GameOneController {
     boolean choice_one_correct;
     boolean choice_two_correct;
     boolean choice_three_correct;
+    
+    int score_to_win;
+
+    int currentScore;
+
 
     private RiddleLibrary riddleLib = new RiddleLibrary("Easy", 3, 7);
 
@@ -60,6 +65,9 @@ public class GameOneController {
     riddleLib.addRiddle(0, b);
     riddleLib.addRiddle(0, c);
 
+
+
+
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
     }
@@ -67,7 +75,9 @@ public class GameOneController {
     public void showSprite(Image gameSprite) {
         gameOneSprite.setImage(gameSprite);
     }
-
+    public void changeWinningScore(int score_to_win) {
+        this.score_to_win = score_to_win;
+    }
     public void changeQuestion(String question, Riddle riddle) {
         question_text.setText("Question: " + riddle.content);
     }
@@ -105,15 +115,19 @@ public class GameOneController {
         if (choice_one_correct) {
             //score goes up
             //call changequestion method with new riddle based on current score
+            goToWinScreen();
         } else {
             //score goes down
             //call changequestion method with new riddle based on current score
+            //will implement here (Armaan)
         }
     }
     public void answerChoiceTwo(ActionEvent event) throws IOException {
         if (choice_two_correct) {
             //score goes up
+            //score should be displayed as well
             //call changequestion method with new riddle based on current score
+            goToWinScreen();
         } else {
             //score goes down
             //call changequestion method with new riddle based on current score
@@ -123,9 +137,17 @@ public class GameOneController {
         if (choice_three_correct) {
             //score goes up
             //call changequestion method with new riddle based on current score
+            goToWinScreen();
         } else {
             //score goes down
             //call changequestion method with new riddle based on current score
+        }
+    }
+
+    public static void goToWinScreen() {
+        if (currentScore >= score_to_win) {
+            WinScreenController winScreen = new WinScreenController();
+            winScreen.switchToWinScreen();
         }
     }
 }

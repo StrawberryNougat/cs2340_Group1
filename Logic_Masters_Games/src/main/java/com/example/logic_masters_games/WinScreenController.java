@@ -12,7 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -46,5 +46,13 @@ public class WinScreenController {
             System.out.println("You successfully logged out!");
             stage.close();
         }
+    }
+
+    public void switchToWinScreen() throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("win-screen.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

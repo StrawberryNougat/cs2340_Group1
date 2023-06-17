@@ -39,7 +39,12 @@ public class ScreenController implements Initializable {
     ChoiceBox<String> gameTwoChoiceBox = new ChoiceBox<String>();
     @FXML
     ChoiceBox<String> gameThreeChoiceBox = new ChoiceBox<String>();
+
+    @FXML
+    ChoiceBox<String> gameOneDifficultyBox = new ChoiceBox<String>();
     private String[] sprites = {"bunny", "cat", "apple"};
+
+    private String[] difficulties = {"easy", "normal", "hard"};
 
     public void startGameOne (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("game1-start-screen.fxml"));
@@ -115,7 +120,15 @@ public class ScreenController implements Initializable {
                 gameOneController.showSprite(apple);
             }
 
-
+            if (gameOneDifficultyBox.getValue().equals("easy")) {
+                gameOneController.changeWinningScore(25);
+            }
+            if (gameOneDifficultyBox.getValue().equals("normal")) {
+                gameOneController.changeWinningScore(50);
+            }
+            if (gameOneDifficultyBox.getValue().equals("hard")) {
+                gameOneController.changeWinningScore(75);
+            }
             //Parent root = FXMLLoader.load(getClass().getResource("game1-game-screen.fxml"));
             stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -185,6 +198,7 @@ public class ScreenController implements Initializable {
         gameOneChoiceBox.getItems().addAll(sprites);
         gameTwoChoiceBox.getItems().addAll(sprites);
         gameThreeChoiceBox.getItems().addAll(sprites);
+        gameOneDifficultyBox.getItems().addAll(difficulties);
     }
 
 }
