@@ -48,7 +48,7 @@ public class WinScreenController {
         }
     }
 
-    public void switchToWinScreen() throws IOException {
+    public void switchToWinScreen(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("win-screen.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

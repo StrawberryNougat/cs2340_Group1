@@ -1,23 +1,34 @@
 package com.example.logic_masters_games;
 
+import java.util.Stack;
+
 public class RiddleLibrary {
 
-    private String category;
+
 
     private int difficultyThresholdEM;
 
     private int difficultyThresholdMH;
 
-    private java.util.Stack<Riddle> availableRiddlesEasy;
+    public java.util.Stack<Riddle> availableRiddlesEasy = new Stack<Riddle>();
 
-    private java.util.Stack<Riddle> availableRiddlesMed;
+    public java.util.Stack<Riddle> availableRiddlesMed = new Stack<Riddle>();
 
-    private java.util.Stack<Riddle> availableRiddlesHard;
+    public java.util.Stack<Riddle> availableRiddlesHard = new Stack<Riddle>();
 
-    public RiddleLibrary(String category, int EM, int MH) {
-        this.category = category;
+    public RiddleLibrary(int EM, int MH, Riddle[] easy, Riddle[] normal, Riddle[] hard) {
         this.difficultyThresholdEM = EM;
         this.difficultyThresholdMH = MH;
+        for (Riddle i:  easy) {
+            this.availableRiddlesEasy.push(i);
+        }
+        for (Riddle i:  normal) {
+            this.availableRiddlesMed.push(i);
+        }
+        for (Riddle i: hard) {
+            this.availableRiddlesHard.push(i);
+        }
+
     }
 
     public void addRiddle(int level, Riddle newRiddle) {
@@ -32,14 +43,19 @@ public class RiddleLibrary {
     }
 
     public Riddle select(int currScore) {
-        if (currScore < difficultyThresholdEM) {
-            return availableRiddlesEasy.pop();
-        } else if (currScore >= difficultyThresholdEM &&
-                currScore <= difficultyThresholdMH) {
-            return availableRiddlesMed.pop();
+        if (areRiddlesRemaining(currScore)) {
+            if (currScore < difficultyThresholdEM) {
+                return availableRiddlesEasy.pop();
+            } else if (currScore >= difficultyThresholdEM &&
+                    currScore <= difficultyThresholdMH) {
+                return availableRiddlesMed.pop();
+            } else {
+                return availableRiddlesHard.pop();
+            }
         } else {
-            return availableRiddlesHard.pop();
+            throw new java.util.NoSuchElementException("Hey Libby change this - this is a test hi future me");
         }
+
     }
 
     public Riddle selectByDifficultyLevel(int level) {
@@ -67,4 +83,6 @@ public class RiddleLibrary {
             return true;
         }
     }
+
+
 }

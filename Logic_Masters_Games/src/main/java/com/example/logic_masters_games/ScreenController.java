@@ -46,6 +46,25 @@ public class ScreenController implements Initializable {
 
     private String[] difficulties = {"easy", "normal", "hard"};
 
+    Riddle a = new Riddle(
+            "David’s parents have three sons: Snap, Crackle, and what’s the name of the third son?",
+            "Easy",
+            "David",
+            "Snap",
+            "Crackle");
+    Riddle b = new Riddle(
+            "I follow you all the time and copy your every move, but you can’t touch me or catch me. What am I?",
+            "Easy",
+            "Your shadow",
+            "Your face",
+            "Your legs");
+    Riddle c = new Riddle(
+            "What has many keys but can’t open a single lock?",
+            "Easy",
+            "Piano",
+            "Guitar",
+            "Violin");
+
     public void startGameOne (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("game1-start-screen.fxml"));
         stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -122,12 +141,21 @@ public class ScreenController implements Initializable {
 
             if (gameOneDifficultyBox.getValue().equals("easy")) {
                 gameOneController.changeWinningScore(25);
+                gameOneController.changeQuestion(a);
+                gameOneController.changeButtons(a);
+
             }
             if (gameOneDifficultyBox.getValue().equals("normal")) {
                 gameOneController.changeWinningScore(50);
+                gameOneController.changeQuestion(a);
+                gameOneController.changeButtons(a);
+
             }
             if (gameOneDifficultyBox.getValue().equals("hard")) {
                 gameOneController.changeWinningScore(75);
+                gameOneController.changeQuestion(a);
+                gameOneController.changeButtons(a);
+
             }
             //Parent root = FXMLLoader.load(getClass().getResource("game1-game-screen.fxml"));
             stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
