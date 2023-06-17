@@ -128,7 +128,7 @@ public class ScreenController implements Initializable {
 
     public void goToGameOne (ActionEvent event) throws IOException { //fun button code. Yay.
         String username = usernameInput.getText();
-        if (!username.isBlank() && !gameOneChoiceBox.getValue().isBlank()) {
+        if (!username.isBlank() && !gameOneChoiceBox.getValue().isBlank() && !gameOneDifficultyBox.getValue().isBlank()) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("game1-game-screen.fxml"));
             root = loader.load();
             GameOneController gameOneController = loader.getController();
