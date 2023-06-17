@@ -34,6 +34,32 @@ public class GameOneController {
     boolean choice_two_correct;
     boolean choice_three_correct;
 
+    private RiddleLibrary riddleLib = new RiddleLibrary("Easy", 3, 7);
+
+
+    Riddle a = new Riddle(
+            "David’s parents have three sons: Snap, Crackle, and what’s the name of the third son?",
+            "Easy",
+            "David",
+            "Snap",
+            "Crackle");
+    Riddle b = new Riddle(
+            "I follow you all the time and copy your every move, but you can’t touch me or catch me. What am I?",
+            "Easy",
+            "Your shadow",
+            "Your face",
+            "Your legs");
+    Riddle c = new Riddle(
+            "What has many keys but can’t open a single lock?",
+            "Easy",
+            "Piano",
+            "Guitar",
+            "Violin");
+
+    riddleLib.addRiddle(0, a);
+    riddleLib.addRiddle(0, b);
+    riddleLib.addRiddle(0, c);
+
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
     }
