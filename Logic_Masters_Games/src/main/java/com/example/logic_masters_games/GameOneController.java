@@ -173,4 +173,12 @@ public class GameOneController {
 //            winScreen.switchToWinScreen();
 //        }
     }
+
+    public int getCurrentScore() {
+        return this.currentScore;
+    }
+
+    public void setCurrentScore(int x) {
+        this.currentScore = x;
+    }
 }
