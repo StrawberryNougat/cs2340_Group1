@@ -113,33 +113,36 @@ public class GameOneController {
 
     public void answerChoiceOne(ActionEvent event) throws IOException {
         if (choice_one_correct) {
-            //score goes up
+            currentScore++;
+            changeQuestion();
             //call changequestion method with new riddle based on current score
             goToWinScreen();
         } else {
-            //score goes down
+            currentScore--;
+            changeQuestion();
             //call changequestion method with new riddle based on current score
-            //will implement here (Armaan)
         }
     }
     public void answerChoiceTwo(ActionEvent event) throws IOException {
         if (choice_two_correct) {
-            //score goes up
-            //score should be displayed as well
+            currentScore++;
+            changeQuestion();
             //call changequestion method with new riddle based on current score
             goToWinScreen();
         } else {
-            //score goes down
+            currentScore--;
+            changeQuestion();
             //call changequestion method with new riddle based on current score
         }
     }
     public void answerChoiceThree(ActionEvent event) throws IOException {
         if (choice_three_correct) {
-            //score goes up
+            currentScore++;
+            changeQuestion();
             //call changequestion method with new riddle based on current score
             goToWinScreen();
         } else {
-            //score goes down
+            currentScore--;
             //call changequestion method with new riddle based on current score
         }
     }
