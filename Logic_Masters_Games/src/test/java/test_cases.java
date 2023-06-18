@@ -168,7 +168,7 @@ public class test_cases {
         gameOneController.changeWinningScore(5);
         assertEquals(gameOneController.getScore_to_win(), 5);
     }
-    
+
     @Test
     public void riddlesRemaining() {
         Riddle a = new Riddle("What's more useful when it is broken?", "Easy", "An egg", "People", "Computer");
@@ -198,6 +198,40 @@ public class test_cases {
         Riddle easyRiddle = ridLib.selectByDifficultyLevel(1);
         Riddle easyRiddle = ridLib.selectByDifficultyLevel(2);
         assertFalse(ridLib.areRiddlesRemaining(0));
+    }
+
+    @Test
+    public void add_easy_riddle() { //Mei
+        Riddle a = new Riddle("Who's the smarterst?", "Easy", "Me", "Einstein", "Newton");
+        Riddle a1 = new Riddle("What has a neck but no head?", "Easy", "bottle", "neck", "human");
+        Riddle[] easies = {a};
+        Riddle[] mediums = null;
+        Riddle[] hards = null;
+        RiddleLibrary rl = new RiddleLibrary(3, 5, easies, mediums, hards);
+        rl.addRiddle(1, a1);
+        assertTrue(rl.availableRiddlesEasy.contians(a1));
+    }
+
+    @Test
+    public void add_med_riddle() { //Mei
+        Riddle b = new Riddle(
+                "I follow you all the time and copy your every move, but you can’t touch me or catch me. What am I?",
+                "Medium",
+                "Your shadow",
+                "Your face",
+                "Your legs");
+        Riddle b1 = new Riddle(
+                "Why is Europe like a frying pan?",
+                "Medium",
+                "it has Greece at the bottom.",
+                "it is a country",
+                "it is a continent");
+        Riddle[] easies = null;
+        Riddle[] mediums = {b};
+        Riddle[] hards = null;
+        RiddleLibrary rl = new RiddleLibrary(3, 5, easies, mediums, hards);
+        rl.addRiddle(4,b1);
+        assertTrue(rl.availableRiddlesMed.contians(b1));
     }
 
 }
