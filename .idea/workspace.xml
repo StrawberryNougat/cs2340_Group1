@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2d3514e-d411-43f7-b929-070782acc730" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/RiddleLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/RiddleLibrary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/test/java/test_cases.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/test/java/test_cases.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +76,7 @@
       <workItem from="1686919341957" duration="1938000" />
       <workItem from="1686956259938" duration="1506000" />
       <workItem from="1686959360870" duration="8902000" />
-      <workItem from="1687055279049" duration="12279000" />
+      <workItem from="1687055279049" duration="13706000" />
     </task>
     <servers />
   </component>

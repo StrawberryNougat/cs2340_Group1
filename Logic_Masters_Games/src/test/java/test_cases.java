@@ -191,7 +191,7 @@ public class test_cases {
     }
 
     @Test
-    public void riddlesMedNotRemaining() throws IOException {
+    public void riddlesEasyNotRemaining() throws IOException {
         Riddle a = new Riddle("What's more useful when it is broken?", "Easy", "An egg", "People", "Computer");
         Riddle b = new Riddle("I am an odd number. Take away a letter and I become even. What number am I?", "Med",
                 "Seven", "Three", "Five");
@@ -201,27 +201,26 @@ public class test_cases {
         Riddle[] mediums = {b};
         Riddle[] hards = {c};
         RiddleLibrary ridLib = new RiddleLibrary(3, 5, easies, mediums, hards);
-        Riddle easyRiddle = ridLib.select(6);
-        Riddle easyRiddle1 = ridLib.select(4);
-        Riddle easyRiddle2 = ridLib.select(2);
-        assertFalse(ridLib.areRiddlesRemaining(0));
+        Riddle easyRiddle = ridLib.select(3);
+        Riddle easyRiddle1 = ridLib.select(2);
+        assertFalse(ridLib.areRiddlesRemaining(1));
     }
 
     @Test
-    public void test_RiddleHard_notRemaining () throws IOException {
+    public void test_RiddleMed_notRemaining () throws IOException {
         Riddle a = new Riddle("What's more useful when it is broken?", "Easy", "An egg", "People", "Computer");
         Riddle b = new Riddle("I am an odd number. Take away a letter and I become even. What number am I?", "Med",
                 "Seven", "Three", "Five");
         Riddle c = new Riddle("What can go through glass without breaking it?", "Hard",
                 "Light", "Finger", "Stick");
         Riddle[] easies = {a};
-        Riddle[] mediums = {b};
-        Riddle[] hards = {c, c, c};
+        Riddle[] mediums = {b, b};
+        Riddle[] hards = {c};
         RiddleLibrary ridLib = new RiddleLibrary(3, 5, easies, mediums, hards);
-        Riddle easyRiddle = ridLib.select(8);
-        Riddle easyRiddle1 = ridLib.select(7);
-        Riddle easyRiddle2 = ridLib.select(6);
-        assertFalse(ridLib.areRiddlesRemaining(6));
+        Riddle easyRiddle = ridLib.select(3);
+        Riddle easyRiddle1 = ridLib.select(2);
+        Riddle easyRiddle2 = ridLib.select(3);
+        assertFalse(ridLib.areRiddlesRemaining(2));
     }
 
     @Test
@@ -248,12 +247,12 @@ public class test_cases {
         Riddle[] easies = {a};
         Riddle[] mediums = {b, b, b};
         Riddle[] hards = {c};
-
         RiddleLibrary testRiddleLibrary = new RiddleLibrary(3, 5, easies, mediums, hards);
 
-        Riddle riddle_test1 = testRiddleLibrary.select(5);
-        Riddle riddle_test2 = testRiddleLibrary.select(4);
-        Riddle riddle_test3 = testRiddleLibrary.select(3);
+        Riddle riddle_test1 = testRiddleLibrary.select(4);
+        Riddle riddle_test2 = testRiddleLibrary.select(3);
+        Riddle riddle_test3 = testRiddleLibrary.select(2);
+        Riddle riddle_test4 = testRiddleLibrary.select(3);
 
         assertTrue(testRiddleLibrary.availableRiddlesMed.empty());
     }
