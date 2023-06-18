@@ -9,5 +9,8 @@
         <module name="Logic_Masters_Games" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Logic_Masters_Games" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
