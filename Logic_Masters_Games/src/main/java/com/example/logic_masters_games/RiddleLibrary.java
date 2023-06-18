@@ -35,7 +35,7 @@ public class RiddleLibrary {
         }
 
     }
-
+/*
     public void addRiddle(int level, Riddle newRiddle) {
         if (level < difficultyThresholdEM) {
             availableRiddlesEasy.push(newRiddle);
@@ -46,7 +46,7 @@ public class RiddleLibrary {
             availableRiddlesHard.push(newRiddle);
         }
     }
-
+*/
     public Riddle select(int currScore) throws IOException {
         if (areRiddlesRemaining(currScore)) {
             if (currScore < difficultyThresholdEM) {
@@ -61,7 +61,7 @@ public class RiddleLibrary {
             throw new java.util.NoSuchElementException("we're out");
         }
     }
-
+/*
     public Riddle selectByDifficultyLevel(int level) {
         // When user selects Easy, level will be passed in as 0.
         // When user selects Medium, level will be passed in as 1.
@@ -74,7 +74,7 @@ public class RiddleLibrary {
             return availableRiddlesHard.pop();
         }
     }
-
+*/
     public boolean areRiddlesRemaining(int currScore) {
         if (currScore < difficultyThresholdEM && availableRiddlesEasy.empty()) {
             return false;
