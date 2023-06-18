@@ -184,7 +184,7 @@ public class test_cases {
     }
 
     @Test
-    public void riddlesRemaining() {
+    public void riddlesNotRemaining() {
         Riddle a = new Riddle("What's more useful when it is broken?", "Easy", "An egg", "People", "Computer");
         Riddle b = new Riddle("I am an odd number. Take away a letter and I become even. What number am I?", "Med",
                 "Seven", "Three", "Five");
