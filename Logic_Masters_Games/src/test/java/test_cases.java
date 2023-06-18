@@ -241,4 +241,47 @@ public class test_cases {
         assertTrue(rl.availableRiddlesMed.contians(b1));
     }
 
+    @Test
+    public void test_riddleLibrary_select_hard() throws IOException { //Armaan
+        Riddle a = new Riddle(
+                "David’s parents have three sons: Snap, Crackle, and what’s the name of the third son?",
+                "Easy",
+                "David",
+                "Snap",
+                "Crackle");
+        Riddle b = new Riddle(
+                "I follow you all the time and copy your every move, but you can’t touch me or catch me. What am I?",
+                "Easy",
+                "Your shadow",
+                "Your face",
+                "Your legs");
+        Riddle c = new Riddle(
+                "What has many keys but can’t open a single lock?",
+                "Easy",
+                "Piano",
+                "Guitar",
+                "Violin");
+        Riddle[] easies = {a};
+        Riddle[] mediums = {b};
+        Riddle[] hards = {c};
+        Stack<Riddle> easyStack = new Stack<>();
+        easyStack.push(a);
+        Stack<Riddle> mediumStack = new Stack<>();
+        mediumStack.push(b);
+        Stack<Riddle> hardStack = new Stack<>();
+        hardStack.push(c);
+        RiddleLibrary riddleLibrary = new RiddleLibrary(3, 5, easies, mediums, hards);
+        RiddleLibrary riddleLibraryClone = new RiddleLibrary(3, 5, easies, mediums, hards);
+        Riddle riddle_test = riddleLibrary.select(7);
+        assertTrue(riddleLibraryClone.availableRiddlesHard.contains(riddle_test));
+    }
 }
+
+
+
+
+
+
+
+
+
