@@ -180,7 +180,30 @@ public class test_cases {
         Riddle[] mediums = {b};
         Riddle[] hards = {c};
         RiddleLibrary ridLib = new RiddleLibrary(3, 5, easies, mediums, hards);
+
+        //tests the areRiddlesRemaining method after initializing riddle library
         assertTrue(ridLib.areRiddlesRemaining(0));
+    }
+
+    @Test
+    public void riddlesNotRemaining() {
+        Riddle a = new Riddle("What's more useful when it is broken?", "Easy", "An egg", "People", "Computer");
+        Riddle b = new Riddle("I am an odd number. Take away a letter and I become even. What number am I?", "Med",
+                "Seven", "Three", "Five");
+        Riddle c = new Riddle("What can go through glass without breaking it?", "Hard",
+                "Light", "Finger", "Stick");
+        Riddle[] easies = {a};
+        Riddle[] mediums = {b};
+        Riddle[] hards = {c};
+        RiddleLibrary ridLib = new RiddleLibrary(3, 5, easies, mediums, hards);
+
+        //tests the selectByDifficultyLevel method
+        Riddle easyRiddle = ridLib.selectByDifficultyLevel(0);
+        Riddle easyRiddle = ridLib.selectByDifficultyLevel(1);
+        Riddle easyRiddle = ridLib.selectByDifficultyLevel(2);
+
+        //tests the areRiddlesRemaining method after using riddles
+        assertFalse(ridLib.areRiddlesRemaining(0));
     }
 
 }
