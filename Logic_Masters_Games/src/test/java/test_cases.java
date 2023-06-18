@@ -168,6 +168,13 @@ public class test_cases {
         gameOneController.changeWinningScore(5);
         assertEquals(gameOneController.getScore_to_win(), 5);
     }
+    @Test
+    public void test_choice_one_correct() {
+        GameOneController gameOneController = new GameOneController();
+        assertEquals(gameOneController.getChoice_one_correct(), false);
+        assertEquals(gameOneController.getChoice_two_correct(), false);
+        assertEquals(gameOneController.getChoice_three_correct(), false);
+    }
 
     @Test
     public void riddlesRemaining() {
