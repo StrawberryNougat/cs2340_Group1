@@ -29,32 +29,27 @@ public class GameTwoController implements Initializable {
 
     @FXML
     private Button button1;
-
     @FXML
     private Button button2;
-
     @FXML
     private Button button3;
-
     @FXML
     private Button button4;
-
     @FXML
     private Button button5;
-
     @FXML
     private Button button6;
-
     @FXML
     private Button button7;
-
     @FXML
     private Button button8;
-
     @FXML
     private Button button9;
 
     ArrayList<Button> buttons;
+
+    Image xSymbol = new Image("src/main/resources/x.png");
+    Image oSymbol = new Image("src/main/resources/o.png");
 
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
@@ -82,13 +77,13 @@ public class GameTwoController implements Initializable {
         for (int i = 0; i < buttons.size(); i++) {
             if (e.getSource() == buttons.get(i)) {
                 if (/*player one turns*/) {
-                    Image xSymbol = new Image("src/main/resources/x.png");
-                    ImageView view = new ImageView(xSymbol);
-                    (buttons.get(i)).setGraphic(view);
-                    //check if player one has won or tie
-                    //change turn to another player
+                    if ((buttons.get(i)).getGraphic() == null) {   // check if the grid is not filled yet
+                        ImageView view = new ImageView(xSymbol);
+                        (buttons.get(i)).setGraphic(view);
+                        //check if player one has won or tie
+                        //change turn to another player
+                    }
                 } else { //means it's player two's turn
-                    Image oSymbol = new Image("src/main/resources/o.png");
                     ImageView view = new ImageView(oSymbol);
                     (buttons.get(i)).setGraphic(view);
                     //check if player two has won or tie
