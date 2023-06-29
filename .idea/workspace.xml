@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2d3514e-d411-43f7-b929-070782acc730" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/resources/o.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/resources/x.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/test/java/test_cases.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/test/java/test_cases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/GameTwoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/GameTwoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/main/resources/com/example/logic_masters_games/game2-game-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/resources/com/example/logic_masters_games/game2-game-screen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,24 +42,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "/Users/maria_ozm/Documents/School/2.assignments/Summer2023/CS 2340/cs2340_Group1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/maria_ozm/Documents/School/2.assignments/Summer2023/CS 2340/cs2340_Group1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,7 +79,12 @@
       <workItem from="1686919341957" duration="1938000" />
       <workItem from="1686956259938" duration="1506000" />
       <workItem from="1686959360870" duration="8902000" />
-      <workItem from="1687055279049" duration="13706000" />
+      <workItem from="1687055279049" duration="14227000" />
+      <workItem from="1687071137538" duration="4397000" />
+      <workItem from="1687118465621" duration="3000" />
+      <workItem from="1687131781568" duration="101000" />
+      <workItem from="1687226413516" duration="607000" />
+      <workItem from="1688051001079" duration="7781000" />
     </task>
     <servers />
   </component>
