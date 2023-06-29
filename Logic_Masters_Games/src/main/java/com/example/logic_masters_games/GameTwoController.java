@@ -13,11 +13,25 @@ public class GameTwoController {
     @FXML
     ImageView gameTwoSprite;
 
+    @FXML
+    int numLives;
+
+    @FXML
+    Label numLivesText;
+
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
     }
 
     public void showSprite(Image gameSprite) {
         gameTwoSprite.setImage(gameSprite);
+    }
+
+    public void changeNumLives(int number) {
+        this.numLives = number;
+    }
+
+    public void changeNumLivesText(int numLives) {
+        numLivesText.setText("Number of lives: " + numLives);
     }
 }
