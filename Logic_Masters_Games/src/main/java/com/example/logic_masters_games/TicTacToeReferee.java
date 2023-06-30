@@ -6,11 +6,11 @@ import java.util.List;
 
 public class TicTacToeReferee {
 
-    java.util.ArrayList<Integer> playerPositions = new java.util.ArrayList<>();
-    java.util.ArrayList<Integer> opponentPositions = new java.util.ArrayList<>();
-    java.util.ArrayList<List> winConditions = new ArrayList<>();
+    public java.util.ArrayList<Integer> playerPositions = new java.util.ArrayList<>();
+    public java.util.ArrayList<Integer> opponentPositions = new java.util.ArrayList<>();
+    public java.util.ArrayList<List> winConditions = new ArrayList<>();
 
-    public void initializeWinConditions() {
+    public TicTacToeReferee() {
         // rows
         List tRow = Arrays.asList(1, 2, 3);
         List mRow = Arrays.asList(4, 5, 6);
