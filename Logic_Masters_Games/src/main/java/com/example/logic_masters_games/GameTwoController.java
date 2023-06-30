@@ -2,12 +2,18 @@ package com.example.logic_masters_games;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +28,7 @@ public class GameTwoController implements Initializable {
     @FXML
     ImageView gameTwoSprite;
 
-    @FXML
+
     int numLives;
 
     @FXML
@@ -77,15 +83,16 @@ public class GameTwoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        buttons = new ArrayList<>(Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8,
+        buttons = new ArrayList<>(Arrays.asList(null, button1, button2, button3, button4, button5, button6, button7, button8,
                 button9));
+        changeNumLivesText(numLives);
 
     }
 
-    public void showButtonSymbol(ActionEvent e) {
-        for (int i = 0; i < buttons.size(); i++) {
+    public void showButtonSymbol(ActionEvent e) throws IOException{
+        for (int i = 1; i < buttons.size(); i++) {
             if (e.getSource() == buttons.get(i)) {
-                if (is_player_turn) {
+                if (buttons.get(i).getText().isEmpty()) {
                     if ((buttons.get(i)).getGraphic() == null) {   // check if the grid is not filled yet
 //                        ImageView view = new ImageView(xSymbol);
 //                        (buttons.get(i)).setGraphic(view);
@@ -93,28 +100,69 @@ public class GameTwoController implements Initializable {
                         int integerForButton = i;
                         ticTacToeReferee.playerPositions.add(integerForButton);
                         String check = ticTacToeReferee.checkWinner();
+                        if (check.equals("You won!")) {
+                            goToWinScreen(e);
+                        }
+                        if (check.equals("Tie!")) {
+                            clearBoard();
+                        }
                         //check if player one has won or tie
                         //change turn to another player
+                        buttons.get(i).setDisable(true);
                         is_player_turn = false;
                     }
                     //means it's player two's turn
 //                    ImageView view = new ImageView(oSymbol);
 //                    (buttons.get(i)).setGraphic(view);
                 }
-                while (!is_player_turn) {
+//                while (!is_player_turn) {
                     int pos = i;
-                    while (ticTacToeReferee.playerPositions.contains(pos) || ticTacToeReferee.opponentPositions.contains(pos)) {
+                    while (pos != 0 && (ticTacToeReferee.playerPositions.contains(pos) || ticTacToeReferee.opponentPositions.contains(pos))) {
                         pos = ticTacToePlayer.markBoard(rand.nextInt(9) + 1);
                     }
                     buttons.get(pos).setText("o");
-                    int integerForButton = i;
+                    buttons.get(pos).setDisable(true);
+                    int integerForButton = pos;
                     ticTacToeReferee.opponentPositions.add(integerForButton);
                     //check if player two has won or tie
                     //change turn to another player
                     String check = ticTacToeReferee.checkWinner();
-                    is_player_turn = true;
-                }
+                    if (check.equals("Opponent won!")) {
+                        numLives--;
+                        changeNumLivesText(numLives);
+                        if (numLives <= 0) {
+                            goToLoseScreen(e);
+                        }
+                        clearBoard();
+                    }
+                    if (check.equals("Tie!")) {
+                        clearBoard();
+                    }
+//                    is_player_turn = true;
+//                }
             }
         }
+    }
+
+    public static void goToWinScreen(ActionEvent event) throws IOException {
+        WinScreenController winScreen = new WinScreenController();
+        winScreen.switchToWinScreen(event);
+    }
+
+    public void goToLoseScreen(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("game_one_lose.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    private void clearBoard() {
+        for (int i = 1; i < buttons.size(); i++) {
+            buttons.get(i).setText("");
+            buttons.get(i).setDisable(false);
+        }
+        ticTacToeReferee.playerPositions.clear();
+        ticTacToeReferee.opponentPositions.clear();
     }
 }

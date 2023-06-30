@@ -193,16 +193,19 @@ public class ScreenController implements Initializable {
             }
             if (gameTwoDifficultyBox.getValue().equals("easy")) {
                 gameTwoController.changeNumLives(3);
+                gameTwoController.changeNumLivesText(3);
 
 
             }
             if (gameTwoDifficultyBox.getValue().equals("normal")) {
                 gameTwoController.changeNumLives(2);
+                gameTwoController.changeNumLivesText(2);
 
 
             }
             if (gameTwoDifficultyBox.getValue().equals("hard")) {
                 gameTwoController.changeNumLives(1);
+                gameTwoController.changeNumLivesText(1);
 
 
             }
