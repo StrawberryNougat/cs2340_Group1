@@ -39,6 +39,9 @@ public class GameTwoController implements Initializable {
     Label numLivesText;
 
     @FXML
+    Label gameTwoLoseText;
+
+    @FXML
     private Button button1;
     @FXML
     private Button button2;
@@ -140,9 +143,10 @@ public class GameTwoController implements Initializable {
                         numLives--;
                         score--;
                         GameTwoLoseController gameTwoLoseController = new GameTwoLoseController();
+//                        gameTwoLoseController.setScore(score);
                         changeNumLivesText(numLives);
                         if (numLives <= 0) {
-                            gameTwoLoseController.setGameTwoLoseText("You lost all your lives - but you final score is... " + score);
+                            gameTwoLoseController.setGameTwoLoseText(score);
                             goToLoseScreen(e);
                         }
                         clearBoard();

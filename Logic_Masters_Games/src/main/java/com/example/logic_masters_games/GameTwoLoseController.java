@@ -2,6 +2,7 @@ package com.example.logic_masters_games;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -12,19 +13,30 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Objects;
 
-public class GameTwoLoseController {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.ResourceBundle;
+
+public class GameTwoLoseController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
+  
     @FXML
-    Label gameTwoLoseText = new Label("test label");
-    public void setGameTwoLoseText(String text) {
-        gameTwoLoseText.setText(text);
+    Label gameTwoLoseText;
+    public void setGameTwoLoseText(int score) {
+        this.gameTwoLoseText.setText("You lost all your lives - but you final score is... " + score);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setGameTwoLoseText(0);
+
+
     }
 
     public void switchToStartScreen(ActionEvent event) throws IOException {
