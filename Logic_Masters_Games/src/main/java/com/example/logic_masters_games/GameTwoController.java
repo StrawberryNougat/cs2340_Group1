@@ -15,10 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class GameTwoController implements Initializable {
@@ -28,7 +25,9 @@ public class GameTwoController implements Initializable {
     @FXML
     ImageView gameTwoSprite;
 
-
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
 
     int numLives;
@@ -142,12 +141,18 @@ public class GameTwoController implements Initializable {
                     if (check.equals("Opponent won!")) {
                         numLives--;
                         score--;
-                        GameTwoLoseController gameTwoLoseController = new GameTwoLoseController();
+//                        GameTwoLoseController gameTwoLoseController = new GameTwoLoseController();
 //                        gameTwoLoseController.setScore(score);
                         changeNumLivesText(numLives);
                         if (numLives <= 0) {
+                            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game_two_lose_screen.fxml")));
+                            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                            GameTwoLoseController gameTwoLoseController = new GameTwoLoseController();
                             gameTwoLoseController.setGameTwoLoseText(score);
-                            goToLoseScreen(e);
+                            scene = new Scene(root);
+                            stage.setScene(scene);
+                            stage.show();
+//                            goToLoseScreen(e);
                         }
                         clearBoard();
                     }
@@ -166,11 +171,13 @@ public class GameTwoController implements Initializable {
     }
 
     public void goToLoseScreen(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("game_two_lose_screen.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        GameTwoLoseController gameTwoLoseController = new GameTwoLoseController();
+        gameTwoLoseController.switchToLoseScreen(event);
+//        Parent root = FXMLLoader.load(getClass().getResource("game_two_lose_screen.fxml"));
+//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
     }
 
     private void clearBoard() {
