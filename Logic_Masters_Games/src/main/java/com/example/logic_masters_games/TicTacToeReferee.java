@@ -3,6 +3,7 @@ package com.example.logic_masters_games;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javafx.scene.control.Button;
 
 public class TicTacToeReferee {
 
@@ -47,5 +48,14 @@ public class TicTacToeReferee {
             return "Tie!";
         }
         return "";
+    }
+
+    public void clearBoard(ArrayList<Button> buttons) {
+        for (int i = 1; i < buttons.size(); i++) {
+            buttons.get(i).setText("");
+            buttons.get(i).setDisable(false);
+        }
+        playerPositions.clear();
+        opponentPositions.clear();
     }
 }
