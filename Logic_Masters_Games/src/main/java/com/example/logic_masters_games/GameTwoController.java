@@ -181,7 +181,7 @@ public class GameTwoController implements Initializable {
 //        stage.show();
     }
 
-    public void clearBoard() {
+    private void clearBoard() {
         for (int i = 1; i < buttons.size(); i++) {
             buttons.get(i).setText("");
             buttons.get(i).setDisable(false);

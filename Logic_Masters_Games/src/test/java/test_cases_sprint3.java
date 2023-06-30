@@ -51,24 +51,47 @@ public class test_cases_sprint3 {
         assertEquals(check, "You won!");
     }
     @Test
-    public void testClearBoard() { //Mei
-        //to test if the program will empty the board when it's a tie.
-        GameTwoController g2 = new GameTwoController();
-        TicTacToeReferee tr = new TicTacToeReferee();
-        tr.opponentPositions.add(3);
-        tr.opponentPositions.add(4);
-        tr.opponentPositions.add(5);
-        tr.opponentPositions.add(9);
-        tr.playerPositions.add(1);
-        tr.playerPositions.add(2);
-        tr.playerPositions.add(6);
-        tr.playerPositions.add(7);
-        tr.playerPositions.add(8);
+    public void testMarkBoard() { //Mei
+        //to test if the method only generates random numbers within range of 1 - 9,
+        // and output 1 if the generated random number exceeds the range.
+        TicTacToePlayer check = new TicTacToePlayer();
 
-        g2.clearBoard();
-
-        assertTrue(tr.opponentPositions.isEmpty());
-        assertTrue(tr.playerPositions.isEmpty());
+        assertTrue(check.markBoard(1) == 1);
+        assertTrue(check.markBoard(9) == 9);
+        assertTrue(check.markBoard(10) == 1);
+        assertTrue(check.markBoard(0) == 1);
     }
+
+    @Test
+    public void referee_constructor() { //Mei
+        TicTacToeReferee rf = new TicTacToeReferee();
+        List tRow = Arrays.asList(1, 2, 3);
+        List mRow = Arrays.asList(4, 5, 6);
+        List bRow = Arrays.asList(7, 8, 9);
+
+        List lCol = Arrays.asList(1, 4, 7);
+        List mCol = Arrays.asList(2, 5, 8);
+        List rCol = Arrays.asList(3, 6, 9);
+
+        List dia1 = Arrays.asList(1, 5, 9);
+        List dia2 = Arrays.asList(3, 5, 7);
+
+        assertEquals(rf.winConditions, tRow);
+        assertEquals(rf.winConditions, mRow);
+        assertEquals(rf.winConditions, bRow);
+
+        assertEquals(rf.winConditions, lCol);
+        assertEquals(rf.winConditions, mCol);
+        assertEquals(rf.winConditions, rCol);
+
+        assertEquals(rf.winConditions, dia1);
+        assertEquals(rf.winConditions, dia2);
+    }
+
+    //just a suggestion: someone else can do another test on markBoard.
+    // to test whether the output number match the randomly generated number.
+    // you can do this by calling markBoard() on each from 1-9, in the assertTrue/Equal().
+    // delete this comment if you find it useless or after you have done it haha
+    // Mei
 }
 
