@@ -12,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -21,25 +20,15 @@ import java.util.*;
 public class GameTwoController implements Initializable {
     @FXML
     Label usernameDisplay;
-
     @FXML
     ImageView gameTwoSprite;
-
     private Stage stage;
     private Scene scene;
     private Parent root;
-
-
     int numLives;
-
     int score = 5;
-
     @FXML
     Label numLivesText;
-
-    @FXML
-    Label gameTwoLoseText;
-
     @FXML
     private Button button1;
     @FXML
@@ -58,17 +47,10 @@ public class GameTwoController implements Initializable {
     private Button button8;
     @FXML
     private Button button9;
-
     ArrayList<Button> buttons;
-
-    Image xSymbol = new Image("x.png");
-    Image oSymbol = new Image("o.png");
-    private Random rand = new Random();
-    private boolean is_player_turn = true;
-
     private TicTacToeReferee ticTacToeReferee = new TicTacToeReferee();
-    private TicTacToePlayer ticTacToePlayer = new TicTacToePlayer();
-
+    private HumanPlayer player = new HumanPlayer();
+    private ComputerPlayer opponent = new ComputerPlayer();
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
     }
@@ -92,20 +74,9 @@ public class GameTwoController implements Initializable {
         // -------------------- PLAYER'S TURN: --------------------
         // Step 1: Get Player input through her button press.
         Button currButton = (Button) e.getSource();
-        // Step 2: Find which button it was among button1 ~ button9.
-        int integerForButton = 0;
-        for (int i = 0; i < buttons.size(); i++) {
-            if (currButton.equals(buttons.get(i))) {
-                // When found, mark it with "x" and disable that button.
-                integerForButton = i;
-                buttons.get(i).setText("x");
-                buttons.get(i).setDisable(true);
-                break;
-            }
-        }
-        // Step 3: Store Player's input to a list.
-        ticTacToeReferee.playerPositions.add(integerForButton);
-        // Step 4: Check whether this move has caused her to win or tie the game.
+        // Step 2: Call playItsMove() of the "player" object.
+        player.playItsMove(buttons, currButton, ticTacToeReferee);
+        // Step 3: Check whether this move has caused her to win or tie the game.
         String check = ticTacToeReferee.checkWinner();
         if (check.equals("You won!")) {
             // Transition to Win screen if Player wins.
@@ -114,21 +85,11 @@ public class GameTwoController implements Initializable {
         }
         if (check.equals("Tie!")) {
             // Clear the board and play again if it's a tie.
-            clearBoard();
+            ticTacToeReferee.clearBoard(buttons);
         }
         // -------------------- OPPONENT'S TURN: --------------------
-        // Step 1: Get Opponent input randomly (an int from 1 to 9).
-        int integerForOpponent = rand.nextInt(9) + 1;
-        // Step 2: If spots are already taken, try again.
-        while ((ticTacToeReferee.playerPositions.contains(integerForOpponent) ||
-                ticTacToeReferee.opponentPositions.contains(integerForOpponent))) {
-            integerForOpponent = ticTacToePlayer.markBoard(rand.nextInt(9) + 1);
-        }
-        // Step 3: Mark Opponent's input spot with "o" and disable that button.
-        buttons.get(integerForOpponent).setText("o");
-        buttons.get(integerForOpponent).setDisable(true);
-        // Step 4: Store Opponent's input to a list.
-        ticTacToeReferee.opponentPositions.add(integerForOpponent);
+        // Step 1: Call playItsMove() of the "opponent" object.
+        opponent.playItsMove(buttons, currButton, ticTacToeReferee);
         // Step 5: Check whether this move has caused her to win or tie the game.
         check = ticTacToeReferee.checkWinner();
         if (check.equals("Opponent won!")) {
@@ -141,11 +102,11 @@ public class GameTwoController implements Initializable {
                 goToLoseScreen(e);
             }
             // Clear the board and play again if Player still has some lives.
-            clearBoard();
+            ticTacToeReferee.clearBoard(buttons);
         }
         if (check.equals("Tie!")) {
             // Clear the board and play again if it's a tie.
-            clearBoard();
+            ticTacToeReferee.clearBoard(buttons);
         }
     }
 
@@ -163,15 +124,6 @@ public class GameTwoController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    private void clearBoard() {
-        for (int i = 1; i < buttons.size(); i++) {
-            buttons.get(i).setText("");
-            buttons.get(i).setDisable(false);
-        }
-        ticTacToeReferee.playerPositions.clear();
-        ticTacToeReferee.opponentPositions.clear();
     }
 
     public ArrayList<Button> getButtons() {
