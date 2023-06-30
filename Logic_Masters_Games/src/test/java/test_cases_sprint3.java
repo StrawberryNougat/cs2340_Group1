@@ -17,13 +17,14 @@ public class test_cases_sprint3 {
     @Test
     public void test_check_winner_tie() {  //Eleanor
         TicTacToeReferee ticTacToeReferee = new TicTacToeReferee();
+        //board is full, but no win condition
         ticTacToeReferee.opponentPositions.add(1);
-        ticTacToeReferee.opponentPositions.add(2);
-        ticTacToeReferee.opponentPositions.add(3);
-        ticTacToeReferee.opponentPositions.add(4);
-        ticTacToeReferee.playerPositions.add(5);
-        ticTacToeReferee.playerPositions.add(6);
-        ticTacToeReferee.playerPositions.add(7);
+        ticTacToeReferee.opponentPositions.add(5);
+        ticTacToeReferee.opponentPositions.add(7);
+        ticTacToeReferee.opponentPositions.add(6);
+        ticTacToeReferee.playerPositions.add(3);
+        ticTacToeReferee.playerPositions.add(4);
+        ticTacToeReferee.playerPositions.add(2);
         ticTacToeReferee.playerPositions.add(8);
         ticTacToeReferee.playerPositions.add(9);
         String check = ticTacToeReferee.checkWinner();
