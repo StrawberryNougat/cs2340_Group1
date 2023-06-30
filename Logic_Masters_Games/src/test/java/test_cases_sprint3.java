@@ -50,6 +50,21 @@ public class test_cases_sprint3 {
         String check = ticTacToeReferee.checkWinner();
         assertEquals(check, "You won!");
     }
+
+    @Test
+    public void testAllPositionsOfMarkBoard() { //Armaan
+        TicTacToePlayer check = new TicTacToePlayer();
+        assertTrue(check.markBoard(1) == 1);
+        assertTrue(check.markBoard(2) == 2);
+        assertTrue(check.markBoard(3) == 3);
+        assertTrue(check.markBoard(4) == 4);
+        assertTrue(check.markBoard(5) == 5);
+        assertTrue(check.markBoard(6) == 6);
+        assertTrue(check.markBoard(7) == 7);
+        assertTrue(check.markBoard(8) == 8);
+        assertTrue(check.markBoard(9) == 9);
+    }
+
     @Test
     public void testMarkBoard() { //Mei
         //to test if the method only generates random numbers within range of 1 - 9,
@@ -87,11 +102,5 @@ public class test_cases_sprint3 {
         assertEquals(rf.winConditions, dia1);
         assertEquals(rf.winConditions, dia2);
     }
-
-    //just a suggestion: someone else can do another test on markBoard.
-    // to test whether the output number match the randomly generated number.
-    // you can do this by calling markBoard() on each from 1-9, in the assertTrue/Equal().
-    // delete this comment if you find it useless or after you have done it haha
-    // Mei
 }
 
