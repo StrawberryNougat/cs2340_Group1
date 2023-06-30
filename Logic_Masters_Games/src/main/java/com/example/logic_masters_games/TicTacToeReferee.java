@@ -34,8 +34,6 @@ public class TicTacToeReferee {
     }
 
     public String checkWinner() {
-
-
         // Check if one side wins.
         for (List cond : winConditions) {
             if (playerPositions.containsAll(cond)) {

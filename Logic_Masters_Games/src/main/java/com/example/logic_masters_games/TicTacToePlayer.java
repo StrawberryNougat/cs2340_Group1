@@ -5,7 +5,6 @@ public class TicTacToePlayer {
     private Random rand = new Random();
     public int markBoard(int pos) {
 
-
         int returner = 1;
         switch (pos) {
             case 1:
