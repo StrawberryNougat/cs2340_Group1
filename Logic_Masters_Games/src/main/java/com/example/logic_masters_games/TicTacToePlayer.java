@@ -1,43 +1,43 @@
 package com.example.logic_masters_games;
+import java.util.Random;
 
 public class TicTacToePlayer {
-    public void markBoard(String user, int pos, char[][] board) {
-        char symbol;
-        if (user.equals("p")) {
-            symbol = 'X';
-        } else {
-            symbol = 'O';
-        }
+    private Random rand = new Random();
+    public int markBoard(int pos) {
+
+
+        int returner = 0;
         switch (pos) {
             case 1:
-                board[0][0] = symbol;
+                returner = 1;
                 break;
             case 2:
-                board[0][2] = symbol;
+                returner = 2;
                 break;
             case 3:
-                board[0][4] = symbol;
+                returner = 3;
                 break;
             case 4:
-                board[2][0] = symbol;
+                returner = 4;
                 break;
             case 5:
-                board[2][2] = symbol;
+                returner = 5;
                 break;
             case 6:
-                board[2][4] = symbol;
+                returner = 6;
                 break;
             case 7:
-                board[4][0] = symbol;
+                returner = 7;
                 break;
             case 8:
-                board[4][2] = symbol;
+                returner = 8;
                 break;
             case 9:
-                board[4][4] = symbol;
+                returner = 9;
                 break;
             default:
                 break;
         }
+        return returner;
     }
 }

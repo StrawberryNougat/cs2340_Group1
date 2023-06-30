@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 
@@ -50,12 +51,13 @@ public class GameTwoController implements Initializable {
 
     Image xSymbol = new Image("x.png");
     Image oSymbol = new Image("o.png");
-
+    private Random rand = new Random();
 
 
     private boolean is_player_turn = true;
 
     private TicTacToeReferee ticTacToeReferee = new TicTacToeReferee();
+    private TicTacToePlayer ticTacToePlayer = new TicTacToePlayer();
 
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
@@ -85,7 +87,7 @@ public class GameTwoController implements Initializable {
             if (e.getSource() == buttons.get(i)) {
                 if (is_player_turn) {
                     if ((buttons.get(i)).getGraphic() == null) {   // check if the grid is not filled yet
-                        ImageView view = new ImageView(xSymbol);
+//                        ImageView view = new ImageView(xSymbol);
 //                        (buttons.get(i)).setGraphic(view);
                         buttons.get(i).setText("x");
                         int integerForButton = i;
@@ -95,10 +97,16 @@ public class GameTwoController implements Initializable {
                         //change turn to another player
                         is_player_turn = false;
                     }
-                } else { //means it's player two's turn
-                    ImageView view = new ImageView(oSymbol);
+                    //means it's player two's turn
+//                    ImageView view = new ImageView(oSymbol);
 //                    (buttons.get(i)).setGraphic(view);
-                    buttons.get(i).setText("o");
+                }
+                while (!is_player_turn) {
+                    int pos = i;
+                    while (ticTacToeReferee.playerPositions.contains(pos) || ticTacToeReferee.opponentPositions.contains(pos)) {
+                        pos = ticTacToePlayer.markBoard(rand.nextInt(9) + 1);
+                    }
+                    buttons.get(pos).setText("o");
                     int integerForButton = i;
                     ticTacToeReferee.opponentPositions.add(integerForButton);
                     //check if player two has won or tie
