@@ -48,8 +48,14 @@ public class GameTwoController implements Initializable {
 
     ArrayList<Button> buttons;
 
-    Image xSymbol = new Image("src/main/resources/x.png");
-    Image oSymbol = new Image("src/main/resources/o.png");
+    Image xSymbol = new Image("x.png");
+    Image oSymbol = new Image("o.png");
+
+
+
+    private boolean is_player_turn = true;
+
+    private TicTacToeReferee ticTacToeReferee = new TicTacToeReferee();
 
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
@@ -71,23 +77,34 @@ public class GameTwoController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         buttons = new ArrayList<>(Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8,
                 button9));
+
     }
 
     public void showButtonSymbol(ActionEvent e) {
         for (int i = 0; i < buttons.size(); i++) {
             if (e.getSource() == buttons.get(i)) {
-                if (/*player one turns*/) {
+                if (is_player_turn) {
                     if ((buttons.get(i)).getGraphic() == null) {   // check if the grid is not filled yet
                         ImageView view = new ImageView(xSymbol);
-                        (buttons.get(i)).setGraphic(view);
+//                        (buttons.get(i)).setGraphic(view);
+                        buttons.get(i).setText("x");
+                        int integerForButton = i;
+                        ticTacToeReferee.playerPositions.add(integerForButton);
+                        String check = ticTacToeReferee.checkWinner();
                         //check if player one has won or tie
                         //change turn to another player
+                        is_player_turn = false;
                     }
                 } else { //means it's player two's turn
                     ImageView view = new ImageView(oSymbol);
-                    (buttons.get(i)).setGraphic(view);
+//                    (buttons.get(i)).setGraphic(view);
+                    buttons.get(i).setText("o");
+                    int integerForButton = i;
+                    ticTacToeReferee.opponentPositions.add(integerForButton);
                     //check if player two has won or tie
                     //change turn to another player
+                    String check = ticTacToeReferee.checkWinner();
+                    is_player_turn = true;
                 }
             }
         }
