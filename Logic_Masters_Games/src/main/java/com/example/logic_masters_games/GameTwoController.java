@@ -29,7 +29,11 @@ public class GameTwoController implements Initializable {
     ImageView gameTwoSprite;
 
 
+
+
     int numLives;
+
+    int score = 5;
 
     @FXML
     Label numLivesText;
@@ -81,11 +85,16 @@ public class GameTwoController implements Initializable {
         numLivesText.setText("Number of lives: " + numLives);
     }
 
+//    public void changeLoseScreenText(String text) {
+//        gameTwoLoseText.setText(text);
+//    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         buttons = new ArrayList<>(Arrays.asList(null, button1, button2, button3, button4, button5, button6, button7, button8,
                 button9));
         changeNumLivesText(numLives);
+
 
     }
 
@@ -129,8 +138,11 @@ public class GameTwoController implements Initializable {
                     String check = ticTacToeReferee.checkWinner();
                     if (check.equals("Opponent won!")) {
                         numLives--;
+                        score--;
+                        GameTwoLoseController gameTwoLoseController = new GameTwoLoseController();
                         changeNumLivesText(numLives);
                         if (numLives <= 0) {
+                            gameTwoLoseController.setGameTwoLoseText("You lost all your lives - but you final score is... " + score);
                             goToLoseScreen(e);
                         }
                         clearBoard();
@@ -150,7 +162,7 @@ public class GameTwoController implements Initializable {
     }
 
     public void goToLoseScreen(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("game_one_lose.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("game_two_lose_screen.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
