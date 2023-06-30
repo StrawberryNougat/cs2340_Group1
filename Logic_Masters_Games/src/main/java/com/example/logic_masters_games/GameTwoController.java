@@ -145,9 +145,10 @@ public class GameTwoController implements Initializable {
 //                        gameTwoLoseController.setScore(score);
                         changeNumLivesText(numLives);
                         if (numLives <= 0) {
-                            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game_two_lose_screen.fxml")));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("game_two_lose_screen.fxml"));
+                            root = loader.load();
                             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                            GameTwoLoseController gameTwoLoseController = new GameTwoLoseController();
+                            GameTwoLoseController gameTwoLoseController = loader.getController();
                             gameTwoLoseController.setGameTwoLoseText(score);
                             scene = new Scene(root);
                             stage.setScene(scene);
