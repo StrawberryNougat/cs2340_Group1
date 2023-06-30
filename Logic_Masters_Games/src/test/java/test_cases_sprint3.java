@@ -40,5 +40,16 @@ public class test_cases_sprint3 {
         String check = ticTacToeReferee.checkWinner();
         assertEquals(check, "Opponent won!");
     }
+
+    @Test
+    public void test_check_winner_player() {  //Armaan
+        TicTacToeReferee ticTacToeReferee = new TicTacToeReferee();
+        ticTacToeReferee.playerPositions.add(1);
+        ticTacToeReferee.playerPositions.add(2);
+        ticTacToeReferee.playerPositions.add(3);
+        String check = ticTacToeReferee.checkWinner();
+        assertEquals(check, "You won!");
+    }
+
 }
 
