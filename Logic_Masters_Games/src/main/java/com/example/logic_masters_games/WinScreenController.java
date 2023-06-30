@@ -29,12 +29,10 @@ public class WinScreenController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     private Button quitButton;
     @FXML
     private AnchorPane scenePane;
-
     public void quitGame(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit");
@@ -42,7 +40,7 @@ public class WinScreenController {
         alert.setContentText("This will close the application.");
 
         if(alert.showAndWait().get() == ButtonType.OK) {
-            stage = (Stage) scenePane.getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             System.out.println("You successfully logged out!");
             stage.close();
         }
@@ -54,5 +52,4 @@ public class WinScreenController {
         stage.setScene(scene);
         stage.show();
     }
-
 }

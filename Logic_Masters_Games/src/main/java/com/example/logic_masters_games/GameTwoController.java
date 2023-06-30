@@ -64,8 +64,6 @@ public class GameTwoController implements Initializable {
     Image xSymbol = new Image("x.png");
     Image oSymbol = new Image("o.png");
     private Random rand = new Random();
-
-
     private boolean is_player_turn = true;
 
     private TicTacToeReferee ticTacToeReferee = new TicTacToeReferee();
@@ -74,95 +72,80 @@ public class GameTwoController implements Initializable {
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
     }
-
     public void showSprite(Image gameSprite) {
         gameTwoSprite.setImage(gameSprite);
     }
-
     public void changeNumLives(int number) {
         this.numLives = number;
     }
-
     public void changeNumLivesText(int numLives) {
         numLivesText.setText("Number of lives: " + numLives);
     }
-
-//    public void changeLoseScreenText(String text) {
-//        gameTwoLoseText.setText(text);
-//    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        buttons = new ArrayList<>(Arrays.asList(null, button1, button2, button3, button4, button5, button6, button7, button8,
-                button9));
+        buttons = new ArrayList<>(
+                Arrays.asList(null, button1, button2, button3, button4, button5,
+                        button6, button7, button8, button9));
         changeNumLivesText(numLives);
-
-
     }
-
-    public void showButtonSymbol(ActionEvent e) throws IOException{
-        for (int i = 1; i < buttons.size(); i++) {
-            if (e.getSource() == buttons.get(i)) {
-                if (buttons.get(i).getText().isEmpty()) {
-                    if ((buttons.get(i)).getGraphic() == null) {   // check if the grid is not filled yet
-//                        ImageView view = new ImageView(xSymbol);
-//                        (buttons.get(i)).setGraphic(view);
-                        buttons.get(i).setText("x");
-                        int integerForButton = i;
-                        ticTacToeReferee.playerPositions.add(integerForButton);
-                        String check = ticTacToeReferee.checkWinner();
-                        if (check.equals("You won!")) {
-                            goToWinScreen(e);
-                        }
-                        if (check.equals("Tie!")) {
-                            clearBoard();
-                        }
-                        //check if player one has won or tie
-                        //change turn to another player
-                        buttons.get(i).setDisable(true);
-                        is_player_turn = false;
-                    }
-                    //means it's player two's turn
-//                    ImageView view = new ImageView(oSymbol);
-//                    (buttons.get(i)).setGraphic(view);
-                }
-//                while (!is_player_turn) {
-                    int pos = i;
-                    while (pos != 0 && (ticTacToeReferee.playerPositions.contains(pos) || ticTacToeReferee.opponentPositions.contains(pos))) {
-                        pos = ticTacToePlayer.markBoard(rand.nextInt(9) + 1);
-                    }
-                    buttons.get(pos).setText("o");
-                    buttons.get(pos).setDisable(true);
-                    int integerForButton = pos;
-                    ticTacToeReferee.opponentPositions.add(integerForButton);
-                    //check if player two has won or tie
-                    //change turn to another player
-                    String check = ticTacToeReferee.checkWinner();
-                    if (check.equals("Opponent won!")) {
-                        numLives--;
-                        score--;
-//                        GameTwoLoseController gameTwoLoseController = new GameTwoLoseController();
-//                        gameTwoLoseController.setScore(score);
-                        changeNumLivesText(numLives);
-                        if (numLives <= 0) {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("game_two_lose_screen.fxml"));
-                            root = loader.load();
-                            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                            GameTwoLoseController gameTwoLoseController = loader.getController();
-                            gameTwoLoseController.setGameTwoLoseText(score);
-                            scene = new Scene(root);
-                            stage.setScene(scene);
-                            stage.show();
-//                            goToLoseScreen(e);
-                        }
-                        clearBoard();
-                    }
-                    if (check.equals("Tie!")) {
-                        clearBoard();
-                    }
-//                    is_player_turn = true;
-//                }
+    public void processMoves(ActionEvent e) throws IOException{
+        // -------------------- PLAYER'S TURN: --------------------
+        // Step 1: Get Player input through her button press.
+        Button currButton = (Button) e.getSource();
+        // Step 2: Find which button it was among button1 ~ button9.
+        int integerForButton = 0;
+        for (int i = 0; i < buttons.size(); i++) {
+            if (currButton.equals(buttons.get(i))) {
+                // When found, mark it with "x" and disable that button.
+                integerForButton = i;
+                buttons.get(i).setText("x");
+                buttons.get(i).setDisable(true);
+                break;
             }
+        }
+        // Step 3: Store Player's input to a list.
+        ticTacToeReferee.playerPositions.add(integerForButton);
+        // Step 4: Check whether this move has caused her to win or tie the game.
+        String check = ticTacToeReferee.checkWinner();
+        if (check.equals("You won!")) {
+            // Transition to Win screen if Player wins.
+            goToWinScreen(e);
+            return;
+        }
+        if (check.equals("Tie!")) {
+            // Clear the board and play again if it's a tie.
+            clearBoard();
+        }
+        // -------------------- OPPONENT'S TURN: --------------------
+        // Step 1: Get Opponent input randomly (an int from 1 to 9).
+        int integerForOpponent = rand.nextInt(9) + 1;
+        // Step 2: If spots are already taken, try again.
+        while ((ticTacToeReferee.playerPositions.contains(integerForOpponent) ||
+                ticTacToeReferee.opponentPositions.contains(integerForOpponent))) {
+            integerForOpponent = ticTacToePlayer.markBoard(rand.nextInt(9) + 1);
+        }
+        // Step 3: Mark Opponent's input spot with "o" and disable that button.
+        buttons.get(integerForOpponent).setText("o");
+        buttons.get(integerForOpponent).setDisable(true);
+        // Step 4: Store Opponent's input to a list.
+        ticTacToeReferee.opponentPositions.add(integerForOpponent);
+        // Step 5: Check whether this move has caused her to win or tie the game.
+        check = ticTacToeReferee.checkWinner();
+        if (check.equals("Opponent won!")) {
+            // When Opponent wins, decrement Player's numLives and score.
+            numLives--;
+            score--;
+            changeNumLivesText(numLives);
+            // Transition to Lose screen if Player runs out of life.
+            if (numLives <= 0) {
+                goToLoseScreen(e);
+            }
+            // Clear the board and play again if Player still has some lives.
+            clearBoard();
+        }
+        if (check.equals("Tie!")) {
+            // Clear the board and play again if it's a tie.
+            clearBoard();
         }
     }
 
@@ -172,13 +155,14 @@ public class GameTwoController implements Initializable {
     }
 
     public void goToLoseScreen(ActionEvent event) throws IOException {
-        GameTwoLoseController gameTwoLoseController = new GameTwoLoseController();
-        gameTwoLoseController.switchToLoseScreen(event);
-//        Parent root = FXMLLoader.load(getClass().getResource("game_two_lose_screen.fxml"));
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("game_two_lose_screen.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        GameTwoLoseController gameTwoLoseController = loader.getController();
+        gameTwoLoseController.setGameTwoLoseText(score);
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void clearBoard() {
