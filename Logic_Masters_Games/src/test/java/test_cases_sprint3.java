@@ -75,18 +75,16 @@ public class test_cases_sprint3 {
         List dia1 = Arrays.asList(1, 5, 9);
         List dia2 = Arrays.asList(3, 5, 7);
 
-        java.util.ArrayList<List> check = new ArrayList<>();
+        assertEquals(rf.winConditions, tRow);
+        assertEquals(rf.winConditions, mRow);
+        assertEquals(rf.winConditions, bRow);
 
-        check.add(tRow);
-        check.add(mRow);
-        check.add(bRow);
-        check.add(lCol);
-        check.add(mCol);
-        check.add(rCol);
-        check.add(dia1);
-        check.add(dia2);
+        assertEquals(rf.winConditions, lCol);
+        assertEquals(rf.winConditions, mCol);
+        assertEquals(rf.winConditions, rCol);
 
-        assertEquals(rf.winConditions,check);
+        assertEquals(rf.winConditions, dia1);
+        assertEquals(rf.winConditions, dia2);
     }
 
     //just a suggestion: someone else can do another test on markBoard.
