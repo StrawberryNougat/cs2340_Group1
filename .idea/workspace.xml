@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2d3514e-d411-43f7-b929-070782acc730" name="Changes" comment="" />
+    <list default="true" id="f2d3514e-d411-43f7-b929-070782acc730" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/test/java/test_cases_sprint3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/test/java/test_cases_sprint3.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
