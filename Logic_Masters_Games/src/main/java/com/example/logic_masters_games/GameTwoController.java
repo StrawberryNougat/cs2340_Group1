@@ -177,4 +177,8 @@ public class GameTwoController implements Initializable {
         ticTacToeReferee.playerPositions.clear();
         ticTacToeReferee.opponentPositions.clear();
     }
+
+    public ArrayList<Button> getButtons() {
+        return this.buttons;
+    }
 }
