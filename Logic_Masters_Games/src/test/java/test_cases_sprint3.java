@@ -69,5 +69,33 @@ public class test_cases_sprint3 {
         assertTrue(tr.opponentPositions.isEmpty());
         assertTrue(tr.playerPositions.isEmpty());
     }
+
+    @Test
+    public void referee_constructor() {
+        TicTacToeReferee rf = new TicTacToeReferee();
+        List tRow = Arrays.asList(1, 2, 3);
+        List mRow = Arrays.asList(4, 5, 6);
+        List bRow = Arrays.asList(7, 8, 9);
+
+        List lCol = Arrays.asList(1, 4, 7);
+        List mCol = Arrays.asList(2, 5, 8);
+        List rCol = Arrays.asList(3, 6, 9);
+
+        List dia1 = Arrays.asList(1, 5, 9);
+        List dia2 = Arrays.asList(3, 5, 7);
+
+        java.util.ArrayList<List> check = new ArrayList<>();
+
+        check.add(tRow);
+        check.add(mRow);
+        check.add(bRow);
+        check.add(lCol);
+        check.add(mCol);
+        check.add(rCol);
+        check.add(dia1);
+        check.add(dia2);
+
+        assertEquals(rf.winConditions,check);
+    }
 }
 
