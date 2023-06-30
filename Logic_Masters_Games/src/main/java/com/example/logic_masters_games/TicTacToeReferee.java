@@ -34,10 +34,8 @@ public class TicTacToeReferee {
     }
 
     public String checkWinner() {
-        // Check if it is a tie (e.g. board is full).
-        if (playerPositions.size() + opponentPositions.size() == 9) {
-            return "Tie!";
-        }
+
+
         // Check if one side wins.
         for (List cond : winConditions) {
             if (playerPositions.containsAll(cond)) {
@@ -45,6 +43,10 @@ public class TicTacToeReferee {
             } else if (opponentPositions.containsAll(cond)) {
                 return "Opponent won!";
             }
+        }
+        // Check if it is a tie (e.g. board is full).
+        if (playerPositions.size() + opponentPositions.size() == 9) {
+            return "Tie!";
         }
         return "";
     }
