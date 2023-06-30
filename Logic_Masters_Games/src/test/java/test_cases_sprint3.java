@@ -50,28 +50,19 @@ public class test_cases_sprint3 {
         assertEquals(check, "You won!");
     }
     @Test
-    public void testClearBoard() { //Mei
-        //to test if the program will empty the board when it's a tie.
-        GameTwoController g2 = new GameTwoController();
-        TicTacToeReferee tr = new TicTacToeReferee();
-        tr.opponentPositions.add(3);
-        tr.opponentPositions.add(4);
-        tr.opponentPositions.add(5);
-        tr.opponentPositions.add(9);
-        tr.playerPositions.add(1);
-        tr.playerPositions.add(2);
-        tr.playerPositions.add(6);
-        tr.playerPositions.add(7);
-        tr.playerPositions.add(8);
+    public void testMarkBoard() { //Mei
+        //to test if the method only generates random numbers within range of 1 - 9,
+        // and output 1 if the generated random number exceeds the range.
+        TicTacToePlayer check = new TicTacToePlayer();
 
-        g2.clearBoard();
-
-        assertTrue(tr.opponentPositions.isEmpty());
-        assertTrue(tr.playerPositions.isEmpty());
+        assertTrue(check.markBoard(1) == 1);
+        assertTrue(check.markBoard(9) == 9);
+        assertTrue(check.markBoard(10) == 1);
+        assertTrue(check.markBoard(0) == 1);
     }
 
     @Test
-    public void referee_constructor() {
+    public void referee_constructor() { //Mei
         TicTacToeReferee rf = new TicTacToeReferee();
         List tRow = Arrays.asList(1, 2, 3);
         List mRow = Arrays.asList(4, 5, 6);
@@ -97,5 +88,11 @@ public class test_cases_sprint3 {
 
         assertEquals(rf.winConditions,check);
     }
+
+    //just a suggestion: someone else can do another test on markBoard.
+    // to test whether the output number match the randomly generated number.
+    // you can do this by calling markBoard() on each from 1-9, in the assertTrue/Equal().
+    // delete this comment if you find it useless or after you have done it haha
+    // Mei
 }
 
