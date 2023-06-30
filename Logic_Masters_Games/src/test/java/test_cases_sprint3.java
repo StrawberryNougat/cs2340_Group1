@@ -49,6 +49,25 @@ public class test_cases_sprint3 {
         String check = ticTacToeReferee.checkWinner();
         assertEquals(check, "You won!");
     }
+    @Test
+    public void testClearBoard() { //Mei
+        //to test if the program will empty the board when it's a tie.
+        GameTwoController g2 = new GameTwoController();
+        TicTacToeReferee tr = new TicTacToeReferee();
+        tr.opponentPositions.add(3);
+        tr.opponentPositions.add(4);
+        tr.opponentPositions.add(5);
+        tr.opponentPositions.add(9);
+        tr.playerPositions.add(1);
+        tr.playerPositions.add(2);
+        tr.playerPositions.add(6);
+        tr.playerPositions.add(7);
+        tr.playerPositions.add(8);
 
+        g2.clearBoard();
+
+        assertTrue(tr.opponentPositions.isEmpty());
+        assertTrue(tr.playerPositions.isEmpty());
+    }
 }
 
