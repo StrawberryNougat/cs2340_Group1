@@ -6,7 +6,7 @@ public class TicTacToePlayer {
     public int markBoard(int pos) {
 
 
-        int returner = 0;
+        int returner = 1;
         switch (pos) {
             case 1:
                 returner = 1;
