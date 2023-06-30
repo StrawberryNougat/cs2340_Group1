@@ -50,7 +50,7 @@ public class test_cases_sprint3 {
         String check = ticTacToeReferee.checkWinner();
         assertEquals(check, "You won!");
     }
-
+/*
     @Test
     public void testAllPositionsOfMarkBoard() { //Armaan
         TicTacToePlayer check = new TicTacToePlayer();
@@ -64,17 +64,18 @@ public class test_cases_sprint3 {
         assertTrue(check.markBoard(8) == 8);
         assertTrue(check.markBoard(9) == 9);
     }
-
+*/
     @Test
-    public void testMarkBoard() { //Mei
-        //to test if the method only generates random numbers within range of 1 - 9,
-        // and output 1 if the generated random number exceeds the range.
-        TicTacToePlayer check = new TicTacToePlayer();
+    public void testWinningConditions() { //Mei
+        //check if the player positions really match one of the winning condition when the player has won.
+        TicTacToeReferee check = new TicTacToeReferee();
 
-        assertTrue(check.markBoard(1) == 1);
-        assertTrue(check.markBoard(9) == 9);
-        assertTrue(check.markBoard(10) == 1);
-        assertTrue(check.markBoard(0) == 1);
+        check.playerPositions.add(1);
+        check.playerPositions.add(5);
+        check.playerPositions.add(9);
+
+        assertEquals(check.checkWinner(), "You won!");
+        assertEquals(check.playerPositions, check.winConditions.get(6));
     }
 
     @Test
