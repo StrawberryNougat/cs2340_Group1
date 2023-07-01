@@ -136,10 +136,24 @@ public class test_cases_sprint3 {
         assertEquals(ref.playerPositions.isEmpty(),true);
         assertEquals(ref.opponentPositions.isEmpty(), true);
     }
-    /*
-    public void TicTacToe
-    */
+    @Test
+    public void testScoreStartsAtFive() { //Taewoon
+        GameTwoController controller = new GameTwoController();
+        int expectedScore = 5;
+        int actualScore = controller.getScore();
+        assertEquals(expectedScore, actualScore);
+    }
+    /*@Test
+    public void TicTacToeHumanPlayer() { //Taewoon
+        ArrayList<Button> buttons = new ArrayList<>();
+        Button button = new Button();
+        buttons.add(button);
+        HumanPlayer human = new HumanPlayer();
+        TicTacToeReferee ref = new TicTacToeReferee();
+        human.playItsMove(buttons, button, ref);
 
+        assertEquals(ref.playerPositions.isEmpty(), false);
+    }*/
 
     @Test
     public void numLivesTest() { //Aishi
