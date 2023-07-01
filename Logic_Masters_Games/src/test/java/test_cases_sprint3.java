@@ -44,7 +44,9 @@ public class test_cases_sprint3 {
     }
 
     @Test
-    public void test_check_winner_player() {  //Armaan
+    public void testSpecificWinningConditionForPlayer() {  //Armaan
+        //Checks one of the multiple winning conditions for the player when they win.
+        //For this test case, we will check and verify positions 1, 2 and 3 on the TicTacToe Board
         TicTacToeReferee ticTacToeReferee = new TicTacToeReferee();
         ticTacToeReferee.playerPositions.add(1);
         ticTacToeReferee.playerPositions.add(2);
@@ -52,21 +54,19 @@ public class test_cases_sprint3 {
         String check = ticTacToeReferee.checkWinner();
         assertEquals(check, "You won!");
     }
-/*
+
     @Test
-    public void testAllPositionsOfMarkBoard() { //Armaan
-        TicTacToePlayer check = new TicTacToePlayer();
-        assertTrue(check.markBoard(1) == 1);
-        assertTrue(check.markBoard(2) == 2);
-        assertTrue(check.markBoard(3) == 3);
-        assertTrue(check.markBoard(4) == 4);
-        assertTrue(check.markBoard(5) == 5);
-        assertTrue(check.markBoard(6) == 6);
-        assertTrue(check.markBoard(7) == 7);
-        assertTrue(check.markBoard(8) == 8);
-        assertTrue(check.markBoard(9) == 9);
+    public void testSpecificWinningConditionForOpponent() {  //Armaan
+        //Checks one of the multiple winning conditions for the opponent when they win.
+        //For this test case, we will check and verify positions 3,5 and 7 on the TicTacToe Board
+        TicTacToeReferee ticTacToeReferee = new TicTacToeReferee();
+        ticTacToeReferee.opponentPositions.add(3);
+        ticTacToeReferee.opponentPositions.add(5);
+        ticTacToeReferee.opponentPositions.add(7);
+        String check = ticTacToeReferee.checkWinner();
+        assertEquals(check, "Opponent won!");
     }
-*/
+
     @Test
     public void testWinningConditions() { //Mei
         //check if the positions really match one of the winning condition (dia1) when the player/opponent has won.
