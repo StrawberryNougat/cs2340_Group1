@@ -57,12 +57,30 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.test_cases_sprint3.testWinningConditions">
+  <component name="RunManager" selected="JUnit.All in Logic_Masters_Games">
+    <configuration name="All in Logic_Masters_Games" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Logic_Masters_Games" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test_cases_sprint3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Logic_Masters_Games" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test_cases_sprint3" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_cases_sprint3.referee_constructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Logic_Masters_Games" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test_cases_sprint3" />
+      <option name="METHOD_NAME" value="referee_constructor" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -77,8 +95,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test_cases_sprint3.test_check_winner_tie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Logic_Masters_Games" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test_cases_sprint3" />
+      <option name="METHOD_NAME" value="test_check_winner_tie" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Logic_Masters_Games" />
+        <item itemvalue="JUnit.test_cases_sprint3.test_check_winner_tie" />
+        <item itemvalue="JUnit.test_cases_sprint3.referee_constructor" />
         <item itemvalue="JUnit.test_cases_sprint3.testWinningConditions" />
         <item itemvalue="JUnit.test_cases_sprint3" />
       </list>
@@ -111,7 +142,7 @@
       <workItem from="1688051001079" duration="8848000" />
       <workItem from="1688062287201" duration="384000" />
       <workItem from="1688146814660" duration="7899000" />
-      <workItem from="1688169096490" duration="348000" />
+      <workItem from="1688169096490" duration="1118000" />
     </task>
     <servers />
   </component>

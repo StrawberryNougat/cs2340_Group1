@@ -74,8 +74,17 @@ public class test_cases_sprint3 {
         check.playerPositions.add(5);
         check.playerPositions.add(9);
 
-        assertEquals(check.checkWinner(), "You won!");
+        assertEquals("You won!", check.checkWinner());
         assertEquals(check.playerPositions, check.winConditions.get(6));
+
+        check.playerPositions.clear();
+
+        check.opponentPositions.add(1);
+        check.opponentPositions.add(5);
+        check.opponentPositions.add(9);
+
+        assertEquals("Opponent won!", check.checkWinner());
+        assertEquals(check.opponentPositions, check.winConditions.get(6));
     }
 
     @Test
@@ -92,16 +101,16 @@ public class test_cases_sprint3 {
         List dia1 = Arrays.asList(1, 5, 9);
         List dia2 = Arrays.asList(3, 5, 7);
 
-        assertEquals(rf.winConditions, tRow);
-        assertEquals(rf.winConditions, mRow);
-        assertEquals(rf.winConditions, bRow);
+        assertEquals(tRow, rf.winConditions.get(0));
+        assertEquals(mRow, rf.winConditions.get(1));
+        assertEquals(bRow, rf.winConditions.get(2));
 
-        assertEquals(rf.winConditions, lCol);
-        assertEquals(rf.winConditions, mCol);
-        assertEquals(rf.winConditions, rCol);
+        assertEquals(lCol, rf.winConditions.get(3));
+        assertEquals(mCol, rf.winConditions.get(4));
+        assertEquals(rCol, rf.winConditions.get(5));
 
-        assertEquals(rf.winConditions, dia1);
-        assertEquals(rf.winConditions, dia2);
+        assertEquals(dia1, rf.winConditions.get(6));
+        assertEquals(dia2, rf.winConditions.get(7));
     }
 }
 
