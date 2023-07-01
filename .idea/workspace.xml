@@ -107,11 +107,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test_cases_sprint3" />
         <item itemvalue="JUnit.All in Logic_Masters_Games" />
         <item itemvalue="JUnit.test_cases_sprint3.test_check_winner_tie" />
         <item itemvalue="JUnit.test_cases_sprint3.referee_constructor" />
         <item itemvalue="JUnit.test_cases_sprint3.testWinningConditions" />
-        <item itemvalue="JUnit.test_cases_sprint3" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +142,10 @@
       <workItem from="1688051001079" duration="8848000" />
       <workItem from="1688062287201" duration="384000" />
       <workItem from="1688146814660" duration="7899000" />
-      <workItem from="1688169096490" duration="1118000" />
+      <workItem from="1688169096490" duration="1283000" />
+      <workItem from="1688170388562" duration="56000" />
+      <workItem from="1688170514574" duration="1445000" />
+      <workItem from="1688176064431" duration="1397000" />
     </task>
     <servers />
   </component>
