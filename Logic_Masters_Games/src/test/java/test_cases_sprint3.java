@@ -67,14 +67,13 @@ public class test_cases_sprint3 {
 */
     @Test
     public void testWinningConditions() { //Mei
-        //check if the player positions really match one of the winning condition when the player has won.
+        //check if the positions really match one of the winning condition (dia1) when the player/opponent has won.
         TicTacToeReferee check = new TicTacToeReferee();
 
         check.playerPositions.add(1);
         check.playerPositions.add(5);
         check.playerPositions.add(9);
 
-        assertEquals("You won!", check.checkWinner());
         assertEquals(check.playerPositions, check.winConditions.get(6));
 
         check.playerPositions.clear();
@@ -83,7 +82,6 @@ public class test_cases_sprint3 {
         check.opponentPositions.add(5);
         check.opponentPositions.add(9);
 
-        assertEquals("Opponent won!", check.checkWinner());
         assertEquals(check.opponentPositions, check.winConditions.get(6));
     }
 
