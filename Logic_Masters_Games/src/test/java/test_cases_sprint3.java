@@ -112,5 +112,13 @@ public class test_cases_sprint3 {
         assertEquals(dia1, rf.winConditions.get(6));
         assertEquals(dia2, rf.winConditions.get(7));
     }
+    
+    @Test
+    public void clearCheck() {
+        TicTacToeReferee ref = new TicTacToeReferee();
+        ref.clearBoard();
+        assertEquals(null, ref.playerPositions);
+        assertEquals(null, ref.opponentPositions);
+    }
 }
 
