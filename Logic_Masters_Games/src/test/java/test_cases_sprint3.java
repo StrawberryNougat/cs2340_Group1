@@ -130,11 +130,24 @@ public class test_cases_sprint3 {
     }
 
     @Test
+    public void TicTacToeRefereeConstructor() { //Taewoon
+        TicTacToeReferee ref = new TicTacToeReferee();
+
+        assertEquals(ref.playerPositions.isEmpty(),true);
+        assertEquals(ref.opponentPositions.isEmpty(), true);
+    }
+    /*
+    public void TicTacToe
+    */
+
+
+    @Test
     public void numLivesTest() { //Aishi
         GameTwoController game = new GameTwoController();
         game.changeNumLives(5);
         game.changeNumLives(4);
         assertEquals(4, game.numLives);
     }
+
 }
 
