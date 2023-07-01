@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f2d3514e-d411-43f7-b929-070782acc730" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/GameTwoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/main/java/com/example/logic_masters_games/GameTwoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic_Masters_Games/src/test/java/test_cases_sprint3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_Masters_Games/src/test/java/test_cases_sprint3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +58,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.All in Logic_Masters_Games">
+  <component name="RunManager">
     <configuration name="All in Logic_Masters_Games" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Logic_Masters_Games" />
       <option name="PACKAGE_NAME" value="" />
@@ -75,21 +76,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test_cases_sprint3.referee_constructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test_cases_sprint3.clearCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Logic_Masters_Games" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test_cases_sprint3" />
-      <option name="METHOD_NAME" value="referee_constructor" />
+      <option name="METHOD_NAME" value="clearCheck" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test_cases_sprint3.testWinningConditions" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test_cases_sprint3.referee_constructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Logic_Masters_Games" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test_cases_sprint3" />
-      <option name="METHOD_NAME" value="testWinningConditions" />
+      <option name="METHOD_NAME" value="referee_constructor" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -107,11 +108,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test_cases_sprint3.clearCheck" />
         <item itemvalue="JUnit.test_cases_sprint3" />
         <item itemvalue="JUnit.All in Logic_Masters_Games" />
         <item itemvalue="JUnit.test_cases_sprint3.test_check_winner_tie" />
         <item itemvalue="JUnit.test_cases_sprint3.referee_constructor" />
-        <item itemvalue="JUnit.test_cases_sprint3.testWinningConditions" />
       </list>
     </recent_temporary>
   </component>
@@ -145,7 +146,8 @@
       <workItem from="1688169096490" duration="1283000" />
       <workItem from="1688170388562" duration="56000" />
       <workItem from="1688170514574" duration="1445000" />
-      <workItem from="1688176064431" duration="1397000" />
+      <workItem from="1688176064431" duration="1873000" />
+      <workItem from="1688233418525" duration="1505000" />
     </task>
     <servers />
   </component>
