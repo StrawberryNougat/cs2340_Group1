@@ -130,4 +130,12 @@ public class GameTwoController implements Initializable {
         return this.buttons;
     }
 
+    public int getScore() {
+        return this.score;
+    }
+
+    public int getNumLives() {
+        return this.numLives;
+    }
+
 }
