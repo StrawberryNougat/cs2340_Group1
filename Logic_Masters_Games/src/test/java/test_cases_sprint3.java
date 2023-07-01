@@ -128,5 +128,15 @@ public class test_cases_sprint3 {
         assertEquals(0, ref.playerPositions.size());
         assertEquals(0, ref.opponentPositions.size());
     }
+    @Test
+    public void TicTacToeRefereeConstructor() { //Taewoon
+        TicTacToeReferee ref = new TicTacToeReferee();
+
+        assertEquals(ref.playerPositions.isEmpty(),true);
+        assertEquals(ref.opponentPositions.isEmpty(), true);
+    }
+    /*
+    public void TicTacToe
+    */
 }
 
