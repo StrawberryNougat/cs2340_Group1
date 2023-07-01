@@ -42,6 +42,9 @@ public class ScreenController implements Initializable {
 
     @FXML
     ChoiceBox<String> gameOneDifficultyBox = new ChoiceBox<String>();
+
+    @FXML
+    ChoiceBox<String> gameTwoDifficultyBox = new ChoiceBox<String>();
     private String[] sprites = {"bunny", "cat", "apple"};
 
     private String[] difficulties = {"easy", "normal", "hard"};
@@ -152,14 +155,14 @@ public class ScreenController implements Initializable {
             }
             if (gameOneDifficultyBox.getValue().equals("normal")) {
                 gameOneController.changeScore(0);
-                gameOneController.changeWinningScore(3);
+                gameOneController.changeWinningScore(5);
                 gameOneController.changeQuestion(startingMedium);
 
 
             }
             if (gameOneDifficultyBox.getValue().equals("hard")) {
                 gameOneController.changeScore(0);
-                gameOneController.changeWinningScore(4);
+                gameOneController.changeWinningScore(8);
                 gameOneController.changeQuestion(startingHard);
 
 
@@ -188,7 +191,24 @@ public class ScreenController implements Initializable {
             if (gameTwoChoiceBox.getValue().equals("apple")) {
                 gameTwoController.showSprite(apple);
             }
+            if (gameTwoDifficultyBox.getValue().equals("easy")) {
+                gameTwoController.changeNumLives(3);
+                gameTwoController.changeNumLivesText(3);
 
+
+            }
+            if (gameTwoDifficultyBox.getValue().equals("normal")) {
+                gameTwoController.changeNumLives(2);
+                gameTwoController.changeNumLivesText(2);
+
+
+            }
+            if (gameTwoDifficultyBox.getValue().equals("hard")) {
+                gameTwoController.changeNumLives(1);
+                gameTwoController.changeNumLivesText(1);
+
+
+            }
 
             //Parent root = FXMLLoader.load(getClass().getResource("game2-game-screen.fxml"));
             stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -234,6 +254,7 @@ public class ScreenController implements Initializable {
         gameTwoChoiceBox.getItems().addAll(sprites);
         gameThreeChoiceBox.getItems().addAll(sprites);
         gameOneDifficultyBox.getItems().addAll(difficulties);
+        gameTwoDifficultyBox.getItems().addAll(difficulties);
     }
 
 }
