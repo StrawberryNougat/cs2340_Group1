@@ -113,7 +113,7 @@ public class test_cases_sprint3 {
         assertEquals(dia2, rf.winConditions.get(7));
     }
     @Test
-    public void clearCheck() {
+    public void clearCheck() { //Aishi
         TicTacToeReferee ref = new TicTacToeReferee();
         
         ref.playerPositions.add(1);
@@ -127,6 +127,14 @@ public class test_cases_sprint3 {
         ref.clearBoard(buttons);
         assertEquals(0, ref.playerPositions.size());
         assertEquals(0, ref.opponentPositions.size());
+    }
+
+    @Test
+    public void numLivesTest() { //Aishi
+        GameTwoController game = new GameTwoController();
+        game.changeNumLives(5);
+        game.changeNumLives(4);
+        assertEquals(4, game.numLives);
     }
 }
 
