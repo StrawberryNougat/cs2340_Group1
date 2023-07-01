@@ -115,6 +115,14 @@ public class test_cases_sprint3 {
     @Test
     public void clearCheck() {
         TicTacToeReferee ref = new TicTacToeReferee();
+        
+        ref.playerPositions.add(1);
+        ref.playerPositions.add(5);
+        ref.playerPositions.add(9);
+        ref.opponentPositions.add(2);
+        ref.opponentPositions.add(4);
+        ref.opponentPositions.add(6);
+      
         ArrayList<Button> buttons = new ArrayList<>();
         ref.clearBoard(buttons);
         assertEquals(0, ref.playerPositions.size());
