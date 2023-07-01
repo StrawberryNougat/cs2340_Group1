@@ -129,4 +129,5 @@ public class GameTwoController implements Initializable {
     public ArrayList<Button> getButtons() {
         return this.buttons;
     }
+
 }
