@@ -114,19 +114,37 @@ public class test_cases_sprint3 {
     }
     @Test
     public void clearCheck() { //Aishi
+        //Tests the clearBoard method of TicTacToeReferee
         TicTacToeReferee ref = new TicTacToeReferee();
         
+        //Updates playerPositions & opponentPositions
         ref.playerPositions.add(1);
         ref.playerPositions.add(5);
         ref.playerPositions.add(9);
         ref.opponentPositions.add(2);
         ref.opponentPositions.add(4);
         ref.opponentPositions.add(6);
-      
+        
+        //Clears game board
         ArrayList<Button> buttons = new ArrayList<>();
         ref.clearBoard(buttons);
+        
+        //Checks if playerPositions & opponentPostitions have been reset
         assertEquals(0, ref.playerPositions.size());
         assertEquals(0, ref.opponentPositions.size());
+    }
+    
+    @Test
+    public void numLivesTest() { //Aishi
+        //Tests the changeNumLives of GameTwoController
+        GameTwoController game = new GameTwoController();
+        
+        //Changes numLives twice
+        game.changeNumLives(5);
+        game.changeNumLives(4);
+        
+        //Checks numLives for latest update
+        assertEquals(4, game.getNumLives());
     }
 
     @Test
@@ -142,14 +160,6 @@ public class test_cases_sprint3 {
         int expectedScore = 5;
         int actualScore = controller.getScore();
         assertEquals(expectedScore, actualScore);
-    }
-
-    @Test
-    public void numLivesTest() { //Aishi
-        GameTwoController game = new GameTwoController();
-        game.changeNumLives(5);
-        game.changeNumLives(4);
-        assertEquals(4, game.getNumLives());
     }
 
 }
