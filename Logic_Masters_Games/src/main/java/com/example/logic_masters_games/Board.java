@@ -6,6 +6,8 @@ import javafx.scene.control.Cell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class Board extends Parent {
     private VBox horizontal = new VBox();
@@ -24,5 +26,34 @@ public class Board extends Parent {
             horizontal.getChildren().add(row);
         }
         this.getChildren().add(horizontal);
+    }
+    public class Block extends Rectangle {
+        public int x, y;
+        public Battleboat battleboat = null;
+        public boolean wasHit = false;
+
+        private Board board;
+
+        public Block(int x, int y, Board board) {
+            super(45,45);
+            this.x = x;
+            this.y = y;
+            this.board =  board;
+            setFill(Color.AQUAMARINE);
+            setStroke(Color.BLACK);
+        }
+        public boolean destroy() {
+            wasHit = true;
+            setFill(Color.BLUEVIOLET);
+            if (battleboat != null) {
+                battleboat.kaboom();
+                setFill(Color.DARKRED);
+                if (!battleboat.isSurvived()) {
+                    board.battleboat--;
+                }
+                return true;
+            }
+            return false;
+        }
     }
 }
