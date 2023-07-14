@@ -12,10 +12,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.Random;
 
 import javafx.application.Application;
@@ -41,8 +38,8 @@ public class Game3Controller {
     @FXML
     Label gameThreeLivesDisplay;
 
-    private Stage stage;
-    private Scene scene;
+    public Stage stage;
+    public Scene scene;
     private Parent root;
 
     private int score = 7;
@@ -92,11 +89,13 @@ public class Game3Controller {
             opponentTurn = !block.destroy();
 
             if (opponentBoard.battleBoats == 0) {
+
                 try {
                     goToWinScreen(e);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+
             }
 
             if (opponentTurn) {
@@ -155,7 +154,7 @@ public class Game3Controller {
                 if (numLives == 0) {
                     goToLoseScreen(e);
                 } else {
-                    refreshGame();
+                    createContent(e);
                 }
             }
         }
