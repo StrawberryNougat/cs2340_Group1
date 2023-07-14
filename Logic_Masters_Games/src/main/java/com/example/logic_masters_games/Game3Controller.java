@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 
-public class Game3Controller {
+public class Game3Controller  {
     private int numLives;
     @FXML
     Label usernameDisplay;
@@ -22,6 +22,12 @@ public class Game3Controller {
 
     @FXML
     Label gameThreeLivesDisplay;
+
+    private boolean isStillOnBoard = false;
+    private Board opponentBoard, playerBoard;
+    private int shipsUsed;
+
+
 
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
