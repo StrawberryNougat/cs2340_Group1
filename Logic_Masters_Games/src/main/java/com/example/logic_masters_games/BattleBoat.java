@@ -15,8 +15,4 @@ public class BattleBoat extends Parent {
     public void kaboom() {
         strength--;
     }
-
-    public boolean hasSurvived() {
-        return strength > 0;
-    }
 }
