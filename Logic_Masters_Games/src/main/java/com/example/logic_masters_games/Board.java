@@ -29,7 +29,7 @@ public class Board extends Parent {
     }
     public class Block extends Rectangle {
         public int x, y;
-        public Battleboat battleboat = null;
+        public BattleBoat battleboat = null;
         public boolean wasHit = false;
 
         private Board board;
@@ -48,7 +48,7 @@ public class Board extends Parent {
             if (battleboat != null) {
                 battleboat.kaboom();
                 setFill(Color.DARKRED);
-                if (!battleboat.isSurvived()) {
+                if (!battleboat.hasSurvived()) {
                     board.battleboat--;
                 }
                 return true;
