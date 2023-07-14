@@ -6,7 +6,7 @@ public class BattleBoat extends Parent {
 
     private int strength;
 
-    public Ship(int type, boolean vertical) {
+    public BattleBoat(int type, boolean vertical) {
         this.type = type;
         this.vertical = vertical;
         strength = type;
