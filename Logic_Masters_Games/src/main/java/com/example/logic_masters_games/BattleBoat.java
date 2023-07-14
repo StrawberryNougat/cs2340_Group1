@@ -11,4 +11,8 @@ public class BattleBoat extends Parent {
         this.vertical = vertical;
         strength = type;
     }
+
+    public void kaboom(){
+        strength--;
+    }
 }
