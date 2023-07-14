@@ -253,11 +253,12 @@ public class ScreenController implements Initializable {
 
             }
 
-
+            root = gameThreeController.createContent(event);
             //Parent root = FXMLLoader.load(getClass().getResource("game2-game-screen.fxml"));
             stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
+            scene = new Scene(gameThreeController.createContent(event));
             stage.setScene(scene);
+            gameThreeController.stage = this.stage;
             stage.show();
         }
     }
