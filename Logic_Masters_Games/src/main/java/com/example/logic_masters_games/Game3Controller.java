@@ -23,6 +23,9 @@ public class Game3Controller {
     @FXML
     Label gameThreeLivesDisplay;
 
+
+    private Board opponentBoard, playerBoard;
+    
     public void displayUsername(String username) {
         usernameDisplay.setText("Username: " + username);
     }
