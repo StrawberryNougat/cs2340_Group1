@@ -1,3 +1,5 @@
+package com.example.logic_masters_games;
+
 import javafx.scene.Parent;
 
 public class BattleBoat extends Parent {
