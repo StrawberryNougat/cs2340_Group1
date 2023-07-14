@@ -12,7 +12,7 @@ public class BattleBoat extends Parent {
         strength = type;
     }
 
-    public void kaboom(){
+    public void kaboom() {
         strength--;
     }
 
