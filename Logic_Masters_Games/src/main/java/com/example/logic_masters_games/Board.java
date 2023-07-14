@@ -16,10 +16,10 @@ import java.util.List;
 public class Board extends Parent {
     private VBox horizontal = new VBox();
     private boolean opponent = false;
-    public int battleBoats = 7;
+    public int battleBoats = 5;
 
     public Board(boolean enemy, EventHandler<? super MouseEvent> handler) {
-        this.opponent = opponent;
+        this.opponent = enemy;
         for (int y = 0; y < 10; y++) {
             HBox row = new HBox();
             for (int x = 0; x < 10; x++) {
@@ -56,6 +56,74 @@ public class Board extends Parent {
     private boolean isExistencePoint(double x, double y) {
         return x>= 0 && x < 10 && y >= 0 && y <10;
     }
+    public boolean positionShip(BattleBoat boat, int x, int y) {
+        if (availablePositionBattleBoat(boat, x, y)) {
+            int size = boat.type;
+            if (boat.vertical) {
+                for (int i = y; i < y + size; i++) {
+                    Block block = getBlock(x, i);
+                    block.battleboat = boat;
+                    if (!opponent) {
+                        block.setFill(Color.YELLOW);
+                        block.setStroke(Color.WHITE);
+                    }
+                }
+            } else {
+                for (int i = x; i < x + size; i++) {
+                    Block block = getBlock(i, y);
+                    block.battleboat = boat;
+                    if (!opponent) {
+                        block.setFill(Color.YELLOW);
+                        block.setStroke(Color.WHITE);
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    public boolean availablePositionBattleBoat(BattleBoat battleboat, int x, int y) {
+        int size = battleboat.type;
+        if (battleboat.vertical) {
+            for (int i = y; i < y + size; i++) {
+                if (!isExistencePoint(x, i)) {
+                    return false;
+                }
+                Block block = getBlock(x, i);
+                if (block.battleboat != null) {
+                    return false;
+                }
+                for (Block adjacent : getAdjacent(x, i)) {
+                    if (!isExistencePoint(x, i)) {
+                        return false;
+                    }
+                    if (adjacent.battleboat != null) {
+                        return false;
+                    }
+                }
+            }
+        } else {
+            for (int i = x; i < x + size; i++) {
+                if (!isExistencePoint(i, y)) {
+                    return false;
+                }
+                Block block = getBlock(i, y);
+                if (block.battleboat != null) {
+                    return false;
+                }
+                for(Block adjacent: getAdjacent(i, y)){
+                    if(!isExistencePoint(i,y)) {
+                        return false;
+                    }
+                    if(adjacent.battleboat != null){
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
     public class Block extends Rectangle {
         public int x, y;
         public BattleBoat battleboat = null;
@@ -64,7 +132,7 @@ public class Board extends Parent {
         private Board board;
 
         public Block(int x, int y, Board board) {
-            super(45,45);
+            super(30,30);
             this.x = x;
             this.y = y;
             this.board =  board;
@@ -84,77 +152,6 @@ public class Board extends Parent {
             }
             return false;
         }
-
-        public boolean availablePositionBattleBoat(BattleBoat battleboat, int x, int y) {
-            int size = battleboat.type;
-            if (battleboat.vertical) {
-                for (int i = y; i < y + size; i++) {
-                    if (!isExistencePoint(x, i)) {
-                        return false;
-                    }
-                    Block block = getBlock(x, i);
-                    if (block.battleboat != null) {
-                        return false;
-                    }
-                    for (Block adjacent : getAdjacent(x, i)) {
-                        if (!isExistencePoint(x, i)) {
-                            return false;
-                        }
-                        if (adjacent.battleboat != null) {
-                            return false;
-                        }
-                    }
-                }
-            } else {
-                for (int i = x; i < x + size; i++) {
-                    if (!isExistencePoint(i, y)) {
-                        return false;
-                    }
-                    Block block = getBlock(i, y);
-                    if (block.battleboat != null) {
-                        return false;
-                    }
-                    for(Block adjacent: getAdjacent(i, y)){
-                        if(!isExistencePoint(i,y){
-                            return false;
-                        }
-                        if(adjacent.battleboat != null){
-                            return false;
-                        }
-                    }
-                    }
-                }
-
-            return true;
-        }
-
-        public boolean positionShip(BattleBoat boat, int x, int y) {
-            if (availablePositionBattleBoat(battleboat, x, y)) {
-                int size = battleboat.type;
-                if (battleboat.vertical) {
-                    for (int i = y; i < y + size; i++) {
-                        Block block = getBlock(x, i);
-                        block.battleboat = battleboat;
-                        if (!opponent) {
-                            block.setFill(Color.YELLOW);
-                            block.setStroke(Color.WHITE);
-                        }
-                    }
-                } else {
-                    for (int i = x; i < x + size; i++) {
-                        Block block = getBlock(i, y);
-                        block.battleboat = battleboat;
-                        if (!opponent) {
-                            block.setFill(Color.YELLOW);
-                            block.setStroke(Color.WHITE);
-                        }
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-
 
     }
 }

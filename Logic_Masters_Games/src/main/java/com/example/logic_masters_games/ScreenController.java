@@ -227,6 +227,7 @@ public class ScreenController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("game3-game-screen.fxml"));
             root = loader.load();
             Game3Controller gameThreeController = loader.getController();
+            root = gameThreeController.createContent(event);
             gameThreeController.displayUsername(username);
             if (gameThreeChoiceBox.getValue().equals("bunny")) {
                 gameThreeController.showSprite(bunny);
