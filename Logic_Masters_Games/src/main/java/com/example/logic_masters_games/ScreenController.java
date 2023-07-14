@@ -45,6 +45,9 @@ public class ScreenController implements Initializable {
 
     @FXML
     ChoiceBox<String> gameTwoDifficultyBox = new ChoiceBox<String>();
+
+    @FXML
+    ChoiceBox<String> gameThreeDifficultyBox = new ChoiceBox<>();
     private String[] sprites = {"bunny", "cat", "apple"};
 
     private String[] difficulties = {"easy", "normal", "hard"};
@@ -234,6 +237,20 @@ public class ScreenController implements Initializable {
             if (gameThreeChoiceBox.getValue().equals("apple")) {
                 gameThreeController.showSprite(apple);
             }
+            if (gameThreeDifficultyBox.getValue().equals("easy")) {
+                gameThreeController.setNumLives(3);
+
+            }
+            if (gameThreeDifficultyBox.getValue().equals("normal")) {
+
+                gameThreeController.setNumLives(2);
+
+            }
+            if (gameThreeDifficultyBox.getValue().equals("hard")) {
+
+                gameThreeController.setNumLives(1);
+
+            }
 
 
             //Parent root = FXMLLoader.load(getClass().getResource("game2-game-screen.fxml"));
@@ -255,6 +272,7 @@ public class ScreenController implements Initializable {
         gameThreeChoiceBox.getItems().addAll(sprites);
         gameOneDifficultyBox.getItems().addAll(difficulties);
         gameTwoDifficultyBox.getItems().addAll(difficulties);
+        gameThreeDifficultyBox.getItems().addAll(difficulties);
     }
 
 }
