@@ -128,6 +128,33 @@ public class Board extends Parent {
             return true;
         }
 
+        public boolean positionShip(BattleBoat boat, int x, int y) {
+            if (availablePositionBattleBoat(battleboat, x, y)) {
+                int size = battleboat.type;
+                if (battleboat.vertical) {
+                    for (int i = y; i < y + size; i++) {
+                        Block block = getBlock(x, i);
+                        block.battleboat = battleboat;
+                        if (!opponent) {
+                            block.setFill(Color.YELLOW);
+                            block.setStroke(Color.WHITE);
+                        }
+                    }
+                } else {
+                    for (int i = x; i < x + size; i++) {
+                        Block block = getBlock(i, y);
+                        block.battleboat = battleboat;
+                        if (!opponent) {
+                            block.setFill(Color.YELLOW);
+                            block.setStroke(Color.WHITE);
+                        }
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+
 
     }
 }
