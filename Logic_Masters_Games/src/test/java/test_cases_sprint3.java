@@ -162,5 +162,46 @@ public class test_cases_sprint3 {
         assertEquals(expectedScore, actualScore);
     }
 
+    @Test
+    public void test_checkWinner_board_full_human_wins() { //Aaron
+        // Tests the case where human player wins and board gets full at the same time.
+        TicTacToeReferee myReferee = new TicTacToeReferee();
+        myReferee.playerPositions.add(3);
+        myReferee.opponentPositions.add(2);
+        myReferee.playerPositions.add(4);
+        myReferee.opponentPositions.add(6);
+        myReferee.playerPositions.add(5);
+        myReferee.opponentPositions.add(8);
+        myReferee.playerPositions.add(1);
+        myReferee.opponentPositions.add(9);
+        // Player's last move fills up the board.
+        myReferee.playerPositions.add(7);
+        // Check if the board did get full.
+        assertEquals(myReferee.playerPositions.size() + myReferee.opponentPositions.size(), 9);
+        // Player made the 3-5-7 diagonal line, should win.
+        String check = myReferee.checkWinner();
+        assertEquals(check, "You won!");
+    }
+
+    @Test
+    public void test_checkWinner_board_full_opponent_wins() { //Aaron
+        // Tests the case where opponent wins and board gets full at the same time.
+        TicTacToeReferee myReferee = new TicTacToeReferee();
+        myReferee.opponentPositions.add(5);
+        myReferee.playerPositions.add(3);
+        myReferee.opponentPositions.add(1);
+        myReferee.playerPositions.add(9);
+        myReferee.opponentPositions.add(6);
+        myReferee.playerPositions.add(4);
+        myReferee.opponentPositions.add(8);
+        myReferee.playerPositions.add(7);
+        // Opponent's last move fills up the board.
+        myReferee.opponentPositions.add(2);
+        // Check if the board did get full.
+        assertEquals(myReferee.playerPositions.size() + myReferee.opponentPositions.size(), 9);
+        // Opponent made the 2-5-8 vertical line, should win.
+        String check = myReferee.checkWinner();
+        assertEquals(check, "Opponent won!");
+    }
 }
 
