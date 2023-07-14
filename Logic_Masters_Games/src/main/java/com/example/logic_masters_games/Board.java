@@ -16,7 +16,7 @@ import java.util.List;
 public class Board extends Parent {
     private VBox horizontal = new VBox();
     private boolean opponent = false;
-    public int ships = 7;
+    public int battleBoats = 7;
 
     public Board(boolean enemy, EventHandler<? super MouseEvent> handler) {
         this.opponent = opponent;
@@ -45,7 +45,7 @@ public class Board extends Parent {
 
         for (Point2D q: points) {
             if (isExistencePoint(q)) {
-                Adjacent.add(getBlock(int)q.getX(), (int)q.getY()));
+                Adjacent.add(getBlock((int)q.getX(), (int)q.getY()));
             }
         }
         return Adjacent.toArray(new Block[0]);
@@ -78,11 +78,56 @@ public class Board extends Parent {
                 battleboat.kaboom();
                 setFill(Color.DARKRED);
                 if (!battleboat.hasSurvived()) {
-                    board.battleboat--;
+                    board.battleBoats--;
                 }
                 return true;
             }
             return false;
         }
+
+        public boolean availablePositionBattleBoat(BattleBoat battleboat, int x, int y) {
+            int size = battleboat.type;
+            if (battleboat.vertical) {
+                for (int i = y; i < y + size; i++) {
+                    if (!isExistencePoint(x, i)) {
+                        return false;
+                    }
+                    Block block = getBlock(x, i);
+                    if (block.battleboat != null) {
+                        return false;
+                    }
+                    for (Block adjacent : getAdjacent(x, i)) {
+                        if (!isExistencePoint(x, i)) {
+                            return false;
+                        }
+                        if (adjacent.battleboat != null) {
+                            return false;
+                        }
+                    }
+                }
+            } else {
+                for (int i = x; i < x + size; i++) {
+                    if (!isExistencePoint(i, y)) {
+                        return false;
+                    }
+                    Block block = getBlock(i, y);
+                    if (block.battleboat != null) {
+                        return false;
+                    }
+                    for(Block adjacent: getAdjacent(i, y)){
+                        if(!isExistencePoint(i,y){
+                            return false;
+                        }
+                        if(adjacent.battleboat != null){
+                            return false;
+                        }
+                    }
+                    }
+                }
+
+            return true;
+        }
+
+
     }
 }
