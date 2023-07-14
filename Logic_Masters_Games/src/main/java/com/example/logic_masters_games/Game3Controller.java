@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 
-public class Game3Controller {
+public class Game3Controller  {
     private int numLives;
     @FXML
     Label usernameDisplay;
