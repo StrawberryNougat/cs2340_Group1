@@ -72,10 +72,13 @@ public class Game3Controller {
     public Parent createContent(ActionEvent e) throws IOException {
 //        Label gameThreeLivesDisplay = new Label();
         gameThreeLivesDisplay.setAlignment(Pos.TOP_RIGHT);
+
 //        gameThreeLivesDisplay.setText("Lives: " + numLives);
         BorderPane root = new BorderPane();
         root.setPrefSize(600, 800);
         root.setRight(gameThreeLivesDisplay);
+        root.setTop(usernameDisplay);
+        root.setLeft(gameThreeSprite);
         opponentBoard = new Board(true, event -> {
             if (!active) {
                 return;
@@ -126,6 +129,7 @@ public class Game3Controller {
 
     private void refreshGame() {
         int shipNum = 5;
+
         while (shipNum > 0) {
             int x = random.nextInt(10);
             int y = random.nextInt(10);
@@ -155,18 +159,14 @@ public class Game3Controller {
 //                    this.root = createContent(e);
                     opponentBoard.clearBoard();
                     playerBoard.clearBoard();
-//                    playerBoard = new Board(false, event -> {
-//                        if (active)
-//                            return;
-//                        Block block1 = (Block) event.getSource();
-//                        if (playerBoard.positionShip(new BattleBoat(shipsToAdd, event.getButton() == MouseButton.PRIMARY), block1.x, block1.y)) {
-//                            if (--shipsToAdd == 0) {
-//                                refreshGame();
-//                            }
-//                        }
-                    });
-//                    refreshGame();
-//                    gameThreeLivesDisplay.setVisible(true);
+//                    Block b = (Block) e.getSource();
+                    this.shipsToAdd = 5;
+                    opponentBoard.battleBoats = 5;
+
+                    playerBoard.battleBoats = 5;
+
+                    this.active = false;
+
                 }
             }
         }
@@ -223,7 +223,7 @@ public class Game3Controller {
     public void goToLoseScreen(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("game_three_lose_screen.fxml"));
         root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage = new Stage();//(Stage) ((Node) event.getSource()).getScene().getWindow();
         GameThreeLoseController gameThreeLoseController = loader.getController();
         gameThreeLoseController.setGameTwoLoseText(score);
         scene = new Scene(root);
