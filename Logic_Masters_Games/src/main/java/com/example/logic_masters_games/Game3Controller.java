@@ -127,7 +127,7 @@ public class Game3Controller {
         return root;
     }
 
-    private void refreshGame() {
+    public void refreshGame() {  //public so we can test it
         int shipNum = 5;
 
         while (shipNum > 0) {
@@ -235,5 +235,43 @@ public class Game3Controller {
     public static void goToWinScreen(ActionEvent event) throws IOException {
         WinScreenController winScreen = new WinScreenController();
         winScreen.switchToWinScreen(event);
+    }
+
+    public boolean getActive() {
+        return this.active;
+    }
+
+    public Board getOpponentBoard() {
+        return opponentBoard;
+    }
+
+    public Board getPlayerBoard() {
+        return playerBoard;
+    }
+
+    public int getNumLives() {
+        return numLives;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getShipsToAdd() {
+        return shipsToAdd;
+    }
+
+    public int getShipsUsed() {
+        return shipsUsed;
+    }
+    public void setShipsToAdd(int changeTo) {
+        this.shipsToAdd = changeTo;
+    }
+
+    public void setPlayerBoard(Board board) {
+        playerBoard = board;
+    }
+    public void setOpponentBoard(Board board) {
+        opponentBoard = board;
     }
 }
