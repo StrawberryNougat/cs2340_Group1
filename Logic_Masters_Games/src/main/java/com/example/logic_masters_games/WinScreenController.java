@@ -52,4 +52,13 @@ public class WinScreenController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void switchToWinScreenGm3(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("win-screen.fxml")));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 }
