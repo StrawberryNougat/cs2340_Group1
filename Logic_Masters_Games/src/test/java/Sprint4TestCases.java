@@ -1,6 +1,6 @@
 public class Sprint4TestCases {
     @Test
-    public void destroyTest() {
+    public void destroyTest() { //Aishi
         //Testing the destroy method with a non-null BattleBoat
         Board board = new Board();
         Board.Block block = controller.new Block(1, 1, board);
@@ -11,7 +11,7 @@ public class Sprint4TestCases {
     }
 
     @Test
-    public void activeAfterRefresh() {
+    public void activeAfterRefresh() { //Aishi
         Game3Controller controller = new Game3Controller();
         controller.refresh();
         assertTrue(active);
@@ -19,7 +19,7 @@ public class Sprint4TestCases {
     }
 
     @Test
-    public void destroyNullTest() {
+    public void destroyNullTest() { //Aishi
         //Testing the destroy method with null BattleBoat
         Board board = new Board();
         Board.Block block = controller.new Block(1, 1, board);
