@@ -75,7 +75,6 @@ public class Game3Controller {
 //        gameThreeLivesDisplay.setText("Lives: " + numLives);
         BorderPane root = new BorderPane();
         root.setPrefSize(600, 800);
-//        root.setRight(new Text("RIGHT SIDEBAR - CONTROLS"));
         root.setRight(gameThreeLivesDisplay);
         opponentBoard = new Board(true, event -> {
             if (!active) {
@@ -91,7 +90,8 @@ public class Game3Controller {
             if (opponentBoard.battleBoats == 0) {
 
                 try {
-                    goToWinScreen(e);
+                    WinScreenController winScreen = new WinScreenController();
+                    winScreen.switchToWinScreenGm3(e);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -110,7 +110,6 @@ public class Game3Controller {
         playerBoard = new Board(false, event -> {
             if (active)
                 return;
-
             Board.Block block = (Board.Block) event.getSource();
             if (playerBoard.positionShip(new BattleBoat(shipsToAdd, event.getButton() == MouseButton.PRIMARY), block.x, block.y)) {
                 if (--shipsToAdd == 0) {
@@ -149,17 +148,77 @@ public class Game3Controller {
             if (playerBoard.battleBoats == 0) {
                 numLives--;
                 score--;
-                setNumLives(numLives);
-//                gameThreeLivesDisplay.setText("Lives: " + numLives);
+                gameThreeLivesDisplay.setText("Lives: " + numLives);
                 if (numLives == 0) {
                     goToLoseScreen(e);
                 } else {
-                    createContent(e);
+//                    this.root = createContent(e);
+                    opponentBoard.clearBoard();
+                    playerBoard.clearBoard();
+//                    playerBoard = new Board(false, event -> {
+//                        if (active)
+//                            return;
+//                        Block block1 = (Block) event.getSource();
+//                        if (playerBoard.positionShip(new BattleBoat(shipsToAdd, event.getButton() == MouseButton.PRIMARY), block1.x, block1.y)) {
+//                            if (--shipsToAdd == 0) {
+//                                refreshGame();
+//                            }
+//                        }
+                    });
+//                    refreshGame();
+//                    gameThreeLivesDisplay.setVisible(true);
                 }
             }
         }
     }
 
+    public void resetBoards(ActionEvent e) throws IOException {
+        opponentBoard = new Board(true, event -> {
+            if (!active) {
+                return;
+            }
+            Block block = (Block) event.getSource();
+
+            if (block.wasHit) {
+                return;
+            }
+            opponentTurn = !block.destroy();
+
+            if (opponentBoard.battleBoats == 0) {
+
+                try {
+                    WinScreenController winScreen = new WinScreenController();
+                    winScreen.switchToWinScreenGm3(e);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            }
+
+            if (opponentTurn) {
+                try {
+                    opponentMove(e);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+
+        playerBoard = new Board(false, event -> {
+            if (active)
+                return;
+
+            Board.Block block = (Board.Block) event.getSource();
+            if (playerBoard.positionShip(new BattleBoat(shipsToAdd, event.getButton() == MouseButton.PRIMARY), block.x, block.y)) {
+                if (--shipsToAdd == 0) {
+                    refreshGame();
+                }
+            }
+        });
+
+        VBox vbox = new VBox(50, opponentBoard, playerBoard);
+        vbox.setAlignment(Pos.CENTER);
+    }
 
     public void goToLoseScreen(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("game_three_lose_screen.fxml"));
@@ -175,7 +234,4 @@ public class Game3Controller {
         WinScreenController winScreen = new WinScreenController();
         winScreen.switchToWinScreen(event);
     }
-
-
-
 }
