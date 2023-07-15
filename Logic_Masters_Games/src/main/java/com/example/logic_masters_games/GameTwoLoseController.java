@@ -93,7 +93,7 @@ public class GameTwoLoseController implements Initializable {
         alert.setTitle("Exit");
         alert.setHeaderText("Are you sure you want to quit the game?");
         alert.setContentText("This will close the application.");
-
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         if (alert.showAndWait().get() == ButtonType.OK) {
             stage = (Stage) scenePane.getScene().getWindow();
             System.out.println("You successfully logged out!");

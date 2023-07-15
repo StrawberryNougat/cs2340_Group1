@@ -223,10 +223,12 @@ public class Game3Controller {
     public void goToLoseScreen(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("game_three_lose_screen.fxml"));
         root = loader.load();
-        stage = new Stage();//(Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         GameThreeLoseController gameThreeLoseController = loader.getController();
         gameThreeLoseController.setGameTwoLoseText(score);
-        scene = new Scene(root);
+
         stage.setScene(scene);
         stage.show();
     }

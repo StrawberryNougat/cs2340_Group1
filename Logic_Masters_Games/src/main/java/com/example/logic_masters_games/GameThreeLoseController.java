@@ -42,7 +42,7 @@ public class GameThreeLoseController {
         alert.setTitle("Exit");
         alert.setHeaderText("Are you sure you want to quit the game?");
         alert.setContentText("This will close the application.");
-
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         if(alert.showAndWait().get() == ButtonType.OK) {
             System.out.println("You successfully logged out!");
             stage.close();
