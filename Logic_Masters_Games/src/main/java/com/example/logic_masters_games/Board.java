@@ -35,11 +35,17 @@ public class Board extends Parent {
     public void clearBoard() {
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
-                this.getBlock(x,y).setFill(Color.AQUAMARINE);
-                this.getBlock(x,y).wasHit = false;
-                this.getBlock(x,y).setStroke(Color.BLACK);
+                this.getBlock(x, y).setFill(Color.AQUAMARINE);
+                this.getBlock(x, y).wasHit = false;
+                this.getBlock(x, y).setStroke(Color.BLACK);
+                if (this.getBlock(x, y).battleboat != null) {
+                    this.getBlock(x, y).battleboat = null;
+                }
+
             }
         }
+//        this.battleBoats = 5;
+//    }
     }
 
     public Block getBlock(int x, int y) {
