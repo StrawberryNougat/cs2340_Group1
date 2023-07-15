@@ -31,6 +31,17 @@ public class Board extends Parent {
         }
         this.getChildren().add(horizontal);
     }
+
+    public void clearBoard() {
+        for (int y = 0; y < 10; y++) {
+            for (int x = 0; x < 10; x++) {
+                this.getBlock(x,y).setFill(Color.AQUAMARINE);
+                this.getBlock(x,y).wasHit = false;
+                this.getBlock(x,y).setStroke(Color.BLACK);
+            }
+        }
+    }
+
     public Block getBlock(int x, int y) {
         return (Block)((HBox)horizontal.getChildren().get(y)).getChildren().get(x);
     }
