@@ -138,7 +138,15 @@ public class Sprint4TestCases {
         boolean test= board.availablePositionBattleBoat(testBattleBoat,2, 3);
         assertTrue(test, "This is a valid position");
     }
- 
+    @Test
+    public void testInvalidAvailableBattleBoatPosition() { //Armaan
+        Board board = new Board(false, null);
+        BattleBoat testBattleBoat = new BattleBoat(3, true);
+        boolean test = board.availablePositionBattleBoat(testBattleBoat,-1, 2);
+        assertFalse(test, "This is a invalid position");
+
+
+    }
 
 
 
