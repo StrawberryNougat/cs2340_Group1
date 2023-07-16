@@ -86,46 +86,60 @@ public class Sprint4TestCases {
 
         // Check if the BattleBoat has not survived anymore
         assertFalse(battleBoat.hasSurvived());
+    }
 
 
-    @Test
-    public void checkHitIsNullAfterClear() { // Eleanor
-        Game3Controller game3Controller = new Game3Controller();
-        game3Controller.setShipsToAdd(0);
-        game3Controller.setOpponentBoard(new Board(true, null));
-        game3Controller.setPlayerBoard(new Board(false, null));
-        game3Controller.getPlayerBoard().getBlock(1,1).wasHit = true;
-        game3Controller.getOpponentBoard().getBlock(1,1).wasHit = true;
-        game3Controller.getOpponentBoard().clearBoard();
-        game3Controller.getPlayerBoard().clearBoard();
-        for (int y = 0; y < 10; y++) {
-            for (int x = 0; x < 10; x++) {
-                assertEquals(game3Controller.getPlayerBoard().getBlock(x, y).wasHit, false);
-                assertEquals(game3Controller.getOpponentBoard().getBlock(x, y).wasHit, false);
+        @Test
+        public void checkHitIsNullAfterClear () { // Eleanor
+            Game3Controller game3Controller = new Game3Controller();
+            game3Controller.setShipsToAdd(0);
+            game3Controller.setOpponentBoard(new Board(true, null));
+            game3Controller.setPlayerBoard(new Board(false, null));
+            game3Controller.getPlayerBoard().getBlock(1, 1).wasHit = true;
+            game3Controller.getOpponentBoard().getBlock(1, 1).wasHit = true;
+            game3Controller.getOpponentBoard().clearBoard();
+            game3Controller.getPlayerBoard().clearBoard();
+            for (int y = 0; y < 10; y++) {
+                for (int x = 0; x < 10; x++) {
+                    assertEquals(game3Controller.getPlayerBoard().getBlock(x, y).wasHit, false);
+                    assertEquals(game3Controller.getOpponentBoard().getBlock(x, y).wasHit, false);
 
+                }
             }
-        }
 //        game3Controller.refreshGame();
-        assertEquals(game3Controller.getOpponentBoard().battleBoats, 5);
-    }
-
-    @Test
-    public void boardClearCheckNoShips() { //Eleanor
-        Game3Controller game3Controller = new Game3Controller();
-        game3Controller.setShipsToAdd(0);
-        game3Controller.setOpponentBoard(new Board(true, null));
-        game3Controller.setPlayerBoard(new Board(false, null));
-        game3Controller.getPlayerBoard().getBlock(1,1).battleboat = new BattleBoat(5, true);
-        game3Controller.getOpponentBoard().getBlock(1,1).battleboat = new BattleBoat(5, true);
-        game3Controller.getOpponentBoard().clearBoard();
-        game3Controller.getPlayerBoard().clearBoard();
-        for (int y = 0; y < 10; y++) {
-            for (int x = 0; x < 10; x++) {
-                assertEquals(game3Controller.getPlayerBoard().getBlock(x, y).battleboat, null);
-                assertEquals(game3Controller.getOpponentBoard().getBlock(x, y).battleboat, null);
-
-            }
+            assertEquals(game3Controller.getOpponentBoard().battleBoats, 5);
         }
 
+        @Test
+        public void boardClearCheckNoShips () { //Eleanor
+            Game3Controller game3Controller = new Game3Controller();
+            game3Controller.setShipsToAdd(0);
+            game3Controller.setOpponentBoard(new Board(true, null));
+            game3Controller.setPlayerBoard(new Board(false, null));
+            game3Controller.getPlayerBoard().getBlock(1, 1).battleboat = new BattleBoat(5, true);
+            game3Controller.getOpponentBoard().getBlock(1, 1).battleboat = new BattleBoat(5, true);
+            game3Controller.getOpponentBoard().clearBoard();
+            game3Controller.getPlayerBoard().clearBoard();
+            for (int y = 0; y < 10; y++) {
+                for (int x = 0; x < 10; x++) {
+                    assertEquals(game3Controller.getPlayerBoard().getBlock(x, y).battleboat, null);
+                    assertEquals(game3Controller.getOpponentBoard().getBlock(x, y).battleboat, null);
+
+                }
+            }
+
+        }
+
+
+        @Test
+        public void testValidAvailableBattleBoatPosition() { //Armaan
+        Board board = new Board(false, null);
+        BattleBoat testBattleBoat = new BattleBoat(3, false);
+        boolean test= board.availablePositionBattleBoat(testBattleBoat,2, 3);
+        assertTrue(test, "This is a valid position");
     }
-}
+       
+
+
+
+    }
