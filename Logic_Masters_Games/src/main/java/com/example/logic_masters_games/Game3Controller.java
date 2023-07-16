@@ -93,8 +93,9 @@ public class Game3Controller {
             if (opponentBoard.battleBoats == 0) {
 
                 try {
-                    WinScreenController winScreen = new WinScreenController();
-                    winScreen.switchToWinScreenGm3(e);
+//                    WinScreenController winScreen = new WinScreenController();
+//                    winScreen.switchToWinScreenGm3(e);
+                    goToWinScreen(e);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -232,9 +233,19 @@ public class Game3Controller {
         stage.setScene(scene);
         stage.show();
     }
-    public static void goToWinScreen(ActionEvent event) throws IOException {
-        WinScreenController winScreen = new WinScreenController();
-        winScreen.switchToWinScreen(event);
+    public void goToWinScreen(ActionEvent event) throws IOException {
+//        WinScreenController winScreen = new WinScreenController();
+//        winScreen.switchToWinScreen(event);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("win-screen.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        GameThreeLoseController gameThreeLoseController = loader.getController();
+        gameThreeLoseController.setGameTwoLoseText(score);
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     public boolean getActive() {
