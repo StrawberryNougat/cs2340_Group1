@@ -190,4 +190,119 @@ public class Sprint4TestCases {
         assertEquals(false, boat.vertical);
         assertEquals(6, boat.getStrength());
     }
+
+    @Test
+    public void testPositionShipBoatSize0() { //Aaron
+        // Create a game board.
+        Board myBoard = new Board(false, null);
+        //---------------------------------------------------------------------
+        // Create a vertical Battleboat of size 0.
+        BattleBoat myBoatV = new BattleBoat(0, true);
+        // Position the boat wherever, for example, at (3, 6).
+        myBoard.positionShip(myBoatV, 3, 6);
+        // Assert that everywhere is still filled with sea color (aquamarine).
+        for (int y = 0; y < 10; y++) {
+            for (int x = 0; x < 10; x++) {
+                assertEquals(AQUAMARINE, myBoard.getBlock(x, y).getFill());
+            }
+        }
+        //---------------------------------------------------------------------
+        // Create a horizontal Battleboat of size 0.
+        BattleBoat myBoatH = new BattleBoat(0, false);
+        // Position the boat wherever, for example, at (4, 3).
+        myBoard.positionShip(myBoatH, 4, 3);
+        // Assert that everywhere is still filled with sea color (aquamarine).
+        for (int y = 0; y < 10; y++) {
+            for (int x = 0; x < 10; x++) {
+                assertEquals(AQUAMARINE, myBoard.getBlock(x, y).getFill());
+            }
+        }
+    }
+    @Test
+    public void testPositionShipBoatSize1() { //Aaron
+        // Create a game board.
+        Board myBoard = new Board(false, null);
+        //---------------------------------------------------------------------
+        // Create a vertical Battleboat of size 1.
+        BattleBoat myBoatV = new BattleBoat(1, true);
+        // Position the boat wherever, for example, at (3, 6).
+        myBoard.positionShip(myBoatV, 3, 6);
+        Board.Block block_to_be_filled = myBoard.getBlock(3, 6);
+        // Assert that (3, 6) is indeed filled with boat color (yellow).
+        assertEquals(YELLOW, block_to_be_filled.getFill());
+        // Assert that everywhere else is still filled with sea color (aquamarine).
+        for (int y = 0; y < 10; y++) {
+            for (int x = 0; x < 10; x++) {
+                if (y == 6 && x == 3) {
+                    continue;
+                }
+                assertEquals(AQUAMARINE, myBoard.getBlock(x, y).getFill());
+            }
+        }
+        //---------------------------------------------------------------------
+        // Clear the board.
+        myBoard.clearBoard();
+        //---------------------------------------------------------------------
+        // Create a horizontal Battleboat of size 1.
+        BattleBoat myBoatH = new BattleBoat(1, false);
+        // Position the boat wherever, for example, at (3, 6).
+        myBoard.positionShip(myBoatH, 3, 6);
+        Board.Block block_to_be_filled2 = myBoard.getBlock(3, 6);
+        // Assert that (3, 6) is indeed filled with boat color (yellow).
+        assertEquals(YELLOW, block_to_be_filled2.getFill());
+        // Assert that everywhere else is still filled with sea color (aquamarine).
+        for (int y = 0; y < 10; y++) {
+            for (int x = 0; x < 10; x++) {
+                if (y == 6 && x == 3) {
+                    continue;
+                }
+                assertEquals(AQUAMARINE, myBoard.getBlock(x, y).getFill());
+            }
+        }
+    }
+
+    @Test
+    public void testPositionShipBoatSizeMax() { //Aaron
+        // Create a game board.
+        Board myBoard = new Board(false, null);
+        //---------------------------------------------------------------------
+        // Create a vertical Battleboat of size 10.
+        BattleBoat myBoatV = new BattleBoat(10, true);
+        // Position the boat wherever, for example, at (2, 0).
+        myBoard.positionShip(myBoatV, 2, 0);
+        // Assert that (2, 0) ~ (2, 9) are all indeed filled with boat color (yellow).
+        for (int y = 0; y < 10; y++) {
+                assertEquals(YELLOW, myBoard.getBlock(2, y).getFill());
+        }
+        // Assert that everywhere else is still filled with sea color (aquamarine).
+        for (int y = 0; y < 10; y++) {
+            for (int x = 0; x < 10; x++) {
+                if (x == 2) {
+                    continue;
+                }
+                assertEquals(AQUAMARINE, myBoard.getBlock(x, y).getFill());
+            }
+        }
+        //---------------------------------------------------------------------
+        // Clear the board.
+        myBoard.clearBoard();
+        //---------------------------------------------------------------------
+        // Create a horizontal Battleboat of size 10.
+        BattleBoat myBoatH = new BattleBoat(10, false);
+        // Position the boat wherever, for example, at (0, 4).
+        myBoard.positionShip(myBoatH, 0, 4);
+        // Assert that (0, 4) ~ (9, 4) are all indeed filled with boat color (yellow).
+        for (int x = 0; x < 10; x++) {
+            assertEquals(YELLOW, myBoard.getBlock(x, 4).getFill());
+        }
+        // Assert that everywhere else is still filled with sea color (aquamarine).
+        for (int y = 0; y < 10; y++) {
+            for (int x = 0; x < 10; x++) {
+                if (y == 4) {
+                    continue;
+                }
+                assertEquals(AQUAMARINE, myBoard.getBlock(x, y).getFill());
+            }
+        }
+    }
 }
