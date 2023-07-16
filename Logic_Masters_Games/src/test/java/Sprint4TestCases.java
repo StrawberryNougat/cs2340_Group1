@@ -8,6 +8,9 @@ import com.example.logic_masters_games.Board;
 import com.example.logic_masters_games.Game3Controller;
 import javafx.scene.paint.Color;
 import org.junit.Test;
+
+import static javafx.scene.paint.Color.AQUAMARINE;
+import static javafx.scene.paint.Color.YELLOW;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Sprint4TestCases {
@@ -144,10 +147,49 @@ public class Sprint4TestCases {
         BattleBoat testBattleBoat = new BattleBoat(3, true);
         boolean test = board.availablePositionBattleBoat(testBattleBoat,-1, 2);
         assertFalse(test, "This is a invalid position");
+    }
 
+    @Test
+    public void testColorChangeAtShipPositionsVertical() { //Mei
+        BattleBoat boat = new BattleBoat(2, true);
+        //Before the ship of size 2 is placed on the board, the colour should be Aquamarine.
+        Board board = new Board(false, null);
+        Board.Block block1 = board.getBlock(5, 5);
+        Board.Block block2 = board.getBlock(5, 6);
+        assertEquals(AQUAMARINE, block1.getFill());
+        assertEquals(AQUAMARINE, block2.getFill());
+        //Colour change when the ship is placed.
+        board.positionShip(boat, 5, 5);
+        assertEquals(YELLOW, block1.getFill());
+        assertEquals(YELLOW, block2.getFill());
+        //Blocks other than the blocks with ships remain aquamarine colour. Few examples:
+        Board.Block blockOther1 = board.new Block(6, 5, board);
+        Board.Block blockOther2 = board.new Block(7, 5, board);
+        assertNotEquals(YELLOW, blockOther1.getFill());
+        assertNotEquals(YELLOW, blockOther2.getFill());
+
+    }
+
+    @Test
+    public void testColorChangeAtShipPositionsHorizontal() { //Mei
+        BattleBoat boat = new BattleBoat(2, false);
+        //Before the ship of size 2 is placed on the board, the colour should be Aquamarine.
+        Board board = new Board(false, null);
+        Board.Block block1 = board.getBlock(5, 5);
+        Board.Block block2 = board.getBlock(6, 5);
+        assertEquals(AQUAMARINE, block1.getFill());
+        assertEquals(AQUAMARINE, block2.getFill());
+        //Colour change when the ship is placed.
+        board.positionShip(boat, 5, 5);
+        assertEquals(YELLOW, block1.getFill());
+        assertEquals(YELLOW, block2.getFill());
+        //Blocks other than the blocks with ships remain aquamarine colour. Few examples:
+        Board.Block blockOther1 = board.new Block(5, 6, board);
+        Board.Block blockOther2 = board.new Block(5, 4, board);
+        assertNotEquals(YELLOW, blockOther1.getFill());
+        assertNotEquals(YELLOW, blockOther2.getFill());
 
     }
 
 
-
-    }
+}
