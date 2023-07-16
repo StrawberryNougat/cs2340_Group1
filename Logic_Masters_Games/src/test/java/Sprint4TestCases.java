@@ -188,8 +188,13 @@ public class Sprint4TestCases {
         Board.Block blockOther2 = board.new Block(5, 4, board);
         assertNotEquals(YELLOW, blockOther1.getFill());
         assertNotEquals(YELLOW, blockOther2.getFill());
-
     }
 
-
+    @Test
+    public void testBoatConstructor() { //Mei
+        BattleBoat boat = new BattleBoat(6, false);
+        assertEquals(6, boat.type);
+        assertEquals(false, boat.vertical);
+        assertEquals(6, boat.getStrength());
+    }
 }

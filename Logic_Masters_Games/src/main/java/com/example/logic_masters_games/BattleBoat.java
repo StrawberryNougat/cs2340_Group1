@@ -21,4 +21,8 @@ public class BattleBoat extends Parent {
     public boolean hasSurvived() {
         return strength > 0;
     }
+
+    public int getStrength() {
+        return strength;
+    }
 }
