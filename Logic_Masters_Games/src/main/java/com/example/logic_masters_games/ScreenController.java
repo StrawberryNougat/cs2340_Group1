@@ -48,9 +48,14 @@ public class ScreenController implements Initializable {
 
     @FXML
     ChoiceBox<String> gameThreeDifficultyBox = new ChoiceBox<>();
+
+    @FXML
+    ChoiceBox<String> boardChoiceBox = new ChoiceBox<>();
     private String[] sprites = {"bunny", "cat", "apple"};
 
     private String[] difficulties = {"easy", "normal", "hard"};
+
+    private String[] boards = {"3x3", "4x4"};
 
     Riddle startingEasy = new Riddle(
             "David’s parents have three sons: Snap, Crackle, and what’s the name of the third son?",
@@ -180,38 +185,76 @@ public class ScreenController implements Initializable {
 
     public void goToGameTwo (ActionEvent event) throws IOException {
         String username = usernameInput.getText();
-        if (!username.isBlank() && !gameTwoChoiceBox.getValue().isBlank()) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("game2-game-screen.fxml"));
-            root = loader.load();
-            GameTwoController gameTwoController = loader.getController();
-            gameTwoController.displayUsername(username);
-            if (gameTwoChoiceBox.getValue().equals("bunny")) {
-                gameTwoController.showSprite(bunny);
-            }
-            if (gameTwoChoiceBox.getValue().equals("cat")) {
-                gameTwoController.showSprite(cat);
-            }
-            if (gameTwoChoiceBox.getValue().equals("apple")) {
-                gameTwoController.showSprite(apple);
-            }
-            if (gameTwoDifficultyBox.getValue().equals("easy")) {
-                gameTwoController.changeNumLives(3);
-                gameTwoController.changeNumLivesText(3);
+        if (!username.isBlank() && !gameTwoChoiceBox.getValue().isBlank() && !boardChoiceBox.getValue().isBlank()) {
+            FXMLLoader loader;
+            if (boardChoiceBox.getValue().equals("3x3")) {
+                loader = new FXMLLoader(getClass().getResource("game2-game-screen.fxml"));
+                root = loader.load();
+                GameTwoController gameTwoController = loader.getController();
+                gameTwoController.displayUsername(username);
+                if (gameTwoChoiceBox.getValue().equals("bunny")) {
+                    gameTwoController.showSprite(bunny);
+                }
+                if (gameTwoChoiceBox.getValue().equals("cat")) {
+                    gameTwoController.showSprite(cat);
+                }
+                if (gameTwoChoiceBox.getValue().equals("apple")) {
+                    gameTwoController.showSprite(apple);
+                }
+                if (gameTwoDifficultyBox.getValue().equals("easy")) {
+                    gameTwoController.changeNumLives(3);
+                    gameTwoController.changeNumLivesText(3);
 
 
+                }
+                if (gameTwoDifficultyBox.getValue().equals("normal")) {
+                    gameTwoController.changeNumLives(2);
+                    gameTwoController.changeNumLivesText(2);
+
+
+                }
+                if (gameTwoDifficultyBox.getValue().equals("hard")) {
+                    gameTwoController.changeNumLives(1);
+                    gameTwoController.changeNumLivesText(1);
+
+
+                }
+            } else {
+                loader = new FXMLLoader(getClass().getResource("game2-game-screen-4x4.fxml"));
+                root = loader.load();
+                GameTwoController4x4 gameTwoController = loader.getController();
+                gameTwoController.displayUsername(username);
+                if (gameTwoChoiceBox.getValue().equals("bunny")) {
+                    gameTwoController.showSprite(bunny);
+                }
+                if (gameTwoChoiceBox.getValue().equals("cat")) {
+                    gameTwoController.showSprite(cat);
+                }
+                if (gameTwoChoiceBox.getValue().equals("apple")) {
+                    gameTwoController.showSprite(apple);
+                }
+                if (gameTwoDifficultyBox.getValue().equals("easy")) {
+                    gameTwoController.changeNumLives(3);
+                    gameTwoController.changeNumLivesText(3);
+
+
+                }
+                if (gameTwoDifficultyBox.getValue().equals("normal")) {
+                    gameTwoController.changeNumLives(2);
+                    gameTwoController.changeNumLivesText(2);
+
+
+                }
+                if (gameTwoDifficultyBox.getValue().equals("hard")) {
+                    gameTwoController.changeNumLives(1);
+                    gameTwoController.changeNumLivesText(1);
+
+
+                }
             }
-            if (gameTwoDifficultyBox.getValue().equals("normal")) {
-                gameTwoController.changeNumLives(2);
-                gameTwoController.changeNumLivesText(2);
 
 
-            }
-            if (gameTwoDifficultyBox.getValue().equals("hard")) {
-                gameTwoController.changeNumLives(1);
-                gameTwoController.changeNumLivesText(1);
 
-
-            }
 
             //Parent root = FXMLLoader.load(getClass().getResource("game2-game-screen.fxml"));
             stage = (Stage)((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -275,6 +318,7 @@ public class ScreenController implements Initializable {
         gameOneDifficultyBox.getItems().addAll(difficulties);
         gameTwoDifficultyBox.getItems().addAll(difficulties);
         gameThreeDifficultyBox.getItems().addAll(difficulties);
+        boardChoiceBox.getItems().addAll(boards);
     }
 
 }
