@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.logic_masters_games.ScreenController">
     <children>
-        <TextField fx:id="usernameInput" layoutX="225.0" layoutY="254.0" promptText="Enter Your Username..." />
+        <TextField fx:id="usernameInput" layoutX="225.0" layoutY="278.0" promptText="Enter Your Username..." />
         <Button layoutY="1.0" mnemonicParsing="false" onAction="#startGameTwo" text="Back" />
         <Button layoutX="249.0" layoutY="304.0" mnemonicParsing="false" onAction="#goToGameTwo" text="Start The Game!" />
         <ImageView fitHeight="96.0" fitWidth="118.0" layoutX="131.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
@@ -27,7 +27,8 @@
                 <Image url="@../../../Apple_Sprite.png" />
             </image>
         </ImageView>
-        <ChoiceBox fx:id="gameTwoChoiceBox" layoutX="225.0" layoutY="187.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="gameTwoDifficultyBox" layoutX="225.0" layoutY="219.0" prefWidth="150.0" />
+        <ChoiceBox fx:id="gameTwoChoiceBox" layoutX="225.0" layoutY="226.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="gameTwoDifficultyBox" layoutX="225.0" layoutY="252.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="boardChoiceBox" layoutX="225.0" layoutY="200.0" prefWidth="150.0" />
     </children>
 </AnchorPane>
